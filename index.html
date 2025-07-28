@@ -39,7 +39,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-[#F0F8FF] font-inter text-gray-800 p-4 sm:p-6 lg:p-8 flex flex-col">
+<body class="min-h-screen bg-[#F8F8F8] font-inter text-gray-800 p-4 sm:p-6 lg:p-8 flex flex-col">
     <div id="dashboard-root" class="w-full h-full flex flex-col">
         <!-- Dashboard content will be rendered here by JavaScript -->
     </div>
@@ -137,7 +137,7 @@
             ]
         };
 
-        // Expanded set of pastel colors for charts and elements
+        // Expanded set of pastel colors for charts and elements (more diverse)
         const CHART_COLORS = [
             '#FFD1DC', // Pastel Pink
             '#A7D9B4', // Pastel Green
@@ -151,12 +151,14 @@
             '#E6E6FA'  // Lavender Blush
         ];
 
-        // Main theme colors for background and primary elements
-        const PRIMARY_PASTEL_BG = '#F0F8FF'; // Alice Blue (very light blue)
-        const PRIMARY_PASTEL_TEXT = '#4682B4'; // Steel Blue (for main headings/accents)
-        const COMPLEMENTARY_PASTEL_BUTTON_ACTIVE = '#7BC88D'; // Medium Green
-        const COMPLEMENTARY_PASTEL_BUTTON_INACTIVE = '#FFECB3'; // Pastel Yellow
-        const COMPLEMENTARY_PASTEL_BUTTON_HOVER = '#FFEE58'; // Slightly darker yellow
+        // Main theme colors for background and primary elements (harmonious, less violet-centric)
+        const PRIMARY_BG = '#F8F8F8'; // Very light grey
+        const PRIMARY_TEXT = '#2C5F7F'; // Muted Teal/Blue for main headings/accents
+        const HIGHLIGHT_TEXT = '#407F9F'; // Slightly brighter Teal/Blue for highlight numbers
+        const BUTTON_ACTIVE_BG = '#5A99B9'; // Medium Blue for active buttons
+        const BUTTON_INACTIVE_BG = '#E0F2F7'; // Very light blue for inactive buttons
+        const BUTTON_INACTIVE_TEXT = '#407F9F'; // Matching highlight text for inactive buttons
+        const BUTTON_HOVER_BG = '#B0E0E6'; // Lighter Blue for button hover
 
         let currentChartInstance = null; // To store the Chart.js instance for destruction
 
@@ -169,7 +171,7 @@
             header.className = 'text-center mb-4 bg-white p-4 rounded-xl shadow-lg flex-shrink-0';
             header.innerHTML = `
                 <img src="http://googleusercontent.com/file_content/8" alt="VLMP Logo" class="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" />
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[${PRIMARY_PASTEL_TEXT}] mb-1">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[${PRIMARY_TEXT}] mb-1">
                     PGPEx-VLM Batch Profile
                 </h1>
                 <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-700 mb-1">
@@ -178,7 +180,7 @@
                 <p class="text-sm sm:text-base text-gray-600 italic">
                     ${batchData.batchInfo}
                 </p>
-                <p class="text-base sm:text-lg font-medium text-[${PRIMARY_PASTEL_TEXT}] mt-2 max-w-3xl mx-auto">
+                <p class="text-base sm:text-lg font-medium text-[${PRIMARY_TEXT}] mt-2 max-w-3xl mx-auto">
                     "${batchData.tagline}"
                 </p>
             `;
@@ -189,23 +191,23 @@
             highlights.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4 flex-shrink-0';
             highlights.innerHTML = `
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
-                    <p class="text-3xl font-bold text-[${PRIMARY_PASTEL_TEXT}]">${batchData.batchSize}</p>
+                    <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.batchSize}</p>
                     <p class="text-sm text-gray-600 mt-1">Batch Size</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
-                    <p class="text-3xl font-bold text-[${PRIMARY_PASTEL_TEXT}]">${batchData.averageAge}</p>
+                    <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.averageAge}</p>
                     <p class="text-sm text-gray-600 mt-1">Avg. Age</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
-                    <p class="text-3xl font-bold text-[${PRIMARY_PASTEL_TEXT}]">${batchData.averageWorkExperience}</p>
+                    <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.averageWorkExperience}</p>
                     <p class="text-sm text-gray-600 mt-1">Avg. Work Exp. (Yrs)</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
-                    <p class="text-3xl font-bold text-[${PRIMARY_PASTEL_TEXT}]">${batchData.globalExposure}%</p>
+                    <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.globalExposure}%</p>
                     <p class="text-sm text-gray-600 mt-1">Global Exposure</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
-                    <p class="text-3xl font-bold text-[${PRIMARY_PASTEL_TEXT}]">${batchData.nitIitPsuPercentage}%</p>
+                    <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.nitIitPsuPercentage}%</p>
                     <p class="text-sm text-gray-600 mt-1">From NIT, IIT & PSU</p>
                 </div>
             `;
@@ -217,16 +219,16 @@
             chartsSection.innerHTML = `
                 <div class="bg-white p-4 rounded-xl shadow-md mb-4 flex-grow flex flex-col">
                     <div id="chart-tabs" class="flex flex-wrap justify-center gap-2 mb-4 flex-shrink-0">
-                        <button id="tab-workExperience" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${COMPLEMENTARY_PASTEL_BUTTON_ACTIVE}] text-white shadow-md">
+                        <button id="tab-workExperience" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md">
                             Work Exp.
                         </button>
-                        <button id="tab-industry" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${COMPLEMENTARY_PASTEL_BUTTON_INACTIVE}] text-gray-700 hover:bg-[${COMPLEMENTARY_PASTEL_BUTTON_HOVER}]">
+                        <button id="tab-industry" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}]">
                             Industry
                         </button>
-                        <button id="tab-functional" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${COMPLEMENTARY_PASTEL_BUTTON_INACTIVE}] text-gray-700 hover:bg-[${COMPLEMENTARY_PASTEL_BUTTON_HOVER}]">
+                        <button id="tab-functional" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}]">
                             Functional
                         </button>
-                        <button id="tab-composition" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${COMPLEMENTARY_PASTEL_BUTTON_INACTIVE}] text-gray-700 hover:bg-[${COMPLEMENTARY_PASTEL_BUTTON_HOVER}]">
+                        <button id="tab-composition" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}]">
                             Composition
                         </button>
                     </div>
@@ -364,9 +366,9 @@
                     // Update active button styles
                     chartTabs.querySelectorAll('button').forEach(btn => {
                         if (btn.id === `tab-${newActiveChart}`) {
-                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${COMPLEMENTARY_PASTEL_BUTTON_ACTIVE}] text-white shadow-md`;
+                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md`;
                         } else {
-                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${COMPLEMENTARY_PASTEL_BUTTON_INACTIVE}] text-gray-700 hover:bg-[${COMPLEMENTARY_PASTEL_BUTTON_HOVER}]`;
+                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}]`;
                         }
                     });
 
