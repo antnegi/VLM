@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGPEx-VLM Batch Profile</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React and ReactDOM CDNs -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Recharts CDN (Requires React) -->
+    <script src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>
+    <!-- Babel for JSX transformation in browser (for development/single file hosting) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for professional background section */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d199ff; /* Violet shade */
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #b84dff; /* Darker violet */
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Ensure all external libraries are loaded before attempting to use their components.
+        // Access Recharts components from the global window.Recharts object
+        const { useState, useEffect } = React;
+        const { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } = window.Recharts;
+
+        // Shades of violet for monochromatic theme
+        const COLORS_MONOCHROME = ['#5F00A8', '#7F00D4', '#9F00FF', '#B84DFF', '#D199FF', '#EAD4FF', '#F5EFFF', '#FAFAFF'];
+
+        const PGPExVLMProfileDashboard = () => {
+          // State to manage which chart is currently active
+          const [activeChart, setActiveChart] = useState('workExperience'); // Default to work experience
+
+          // Data extracted from the PDF
+          const batchData = {
+            programName: "POST GRADUATE PROGRAM FOR EXECUTIVES FOR VISIONARY LEADERSHIP IN MANUFACTURING",
+            batchInfo: "19th Batch | Cohort of 2026",
+            tagline: "Developing Visionary Leaders to Uplift India's Manufacturing on the Global Tribune",
+            batchSize: 40,
+            averageAge: 29,
+            averageWorkExperience: 6.6, // in years
+            globalExposure: 38, // percentage
+            nitIitPsuPercentage: 23, // percentage
+
+            batchComposition: [
+              { name: 'Male', value: 90 },
+              { name: 'Female', value: 10 },
+            ],
+
+            workExperienceDistribution: [
+              { name: '<5 years', value: 7.5 },
+              { name: '5-6 years', value: 25 },
+              { name: '6-7 years', value: 37.5 },
+              { name: '7-8 years', value: 10 },
+              { name: '>8 years', value: 20 },
+            ],
+
+            industryDistribution: [
+              { name: 'Automotive', value: 28 },
+              { name: 'Oil & Gas', value: 17.5 },
+              { name: 'Manufacturing', value: 10 },
+              { name: 'Engineering', value: 10 },
+              { name: 'Metal & Mining', value: 5 },
+              { name: 'Power & Energy', value: 13 },
+              { name: 'Consulting', value: 7 },
+              { name: 'Others', value: 9.5 }, // Adjusted from 10% to make total 100%
+            ],
+
+            functionalExposure: [
+              { name: 'Operations', value: 32.5 },
+              { name: 'Supply Chain and Sourcing', value: 17.5 },
+              { name: 'Engineering', value: 17.5 },
+              { name: 'Project Management', value: 12.5 },
+              { name: 'Business Excellence/Strategy', value: 5 },
+              { name: 'Others', value: 15 },
+            ],
+
+            professionalBackgroundCompanies: [
+              { name: 'MARUTI SUZUKI', url: 'https://www.marutisuzuki.com/' },
+              { name: 'Hero', url: 'https://www.heromotocorp.com/' },
+              { name: 'Vedanta', url: 'https://www.vedantalimited.com/' },
+              { name: 'ExxonMobil', url: 'https://corporate.exxonmobil.com/locations/india' },
+              { name: 'LAND-ROVER', url: 'https://www.tatamotors.com/brands/land-rover/' },
+              { name: 'EXIDE', url: 'https://www.exideindustries.com/' },
+              { name: 'JAGUAR', url: 'https://www.tatamotors.com/brands/jaguar/' },
+              { name: 'nuvepro', url: 'https://nuvepro.com/' },
+              { name: 'Deloitte.', url: 'https://www.deloitte.com/in/en.html' },
+              { name: 'TCS', url: 'https://www.tcs.com/in-en' },
+              { name: 'Reliance', url: 'https://www.ril.com/' },
+              { name: 'HP', url: 'https://www.hp.com/in-en/home.html' },
+              { name: 'amazon', url: 'https://www.amazon.in/' },
+              { name: 'HEXAGON', url: 'https://hexagon.com/' },
+              { name: 'Aarti', url: 'https://www.aarti-industries.com/' },
+              { name: 'TATA STEEL', url: 'https://www.tatasteel.com/' },
+              { name: 'VESUVIUS', url: 'https://www.vesuvius.com/' },
+              { name: 'ADITYA BIRLA', url: 'https://www.adityabirlagroup.com/' },
+              { name: 'Phoenix', url: 'https://www.thephoenixmills.com/' },
+              { name: 'TATA CONSULTING ENGINEERS LIMITED', url: 'https://www.tce.co.in/' },
+              { name: 'motherson', url: 'https://www.motherson.com/' },
+              { name: 'Industries Limited', url: 'https://www.ril.com/' }, // Assuming Reliance Industries Limited
+              { name: 'HINDALCO', url: 'https://www.hindalco.com/' },
+              { name: 'The Math Company', url: 'https://www.themathcompany.com/' },
+              { name: 'SAINT-GOBAIN', url: 'https://www.saint-gobain.co.in/' },
+              { name: 'Coromandel', url: 'https://www.coromandel.biz/' },
+              { name: 'INDKAL', url: 'https://indkal.com/' },
+              { name: 'KBR', url: 'https://www.kbr.com/en/what-we-do' },
+              { name: 'TATA BLUESCOPE STEEL', url: 'https://www.tatabluescopesteel.com/' },
+              { name: 'Hawkins', url: 'https://www.hawkinscookers.com/' },
+              { name: 'BHORUKA', url: 'https://bhorukaextrusions.com/' },
+              { name: 'A YKK AF COMPANY', url: 'https://www.ykkap.co.jp/english/' }, // YKK AP Japan
+              { name: 'GEP', url: 'https://www.gep.com/careers/join-us/campus-connect/india' },
+              { name: 'CNH', url: 'https://www.cnhindustrial.com/en-in/' },
+              { name: 'MARITIME INDUSTRIAL', url: 'https://www.maritimeindustrial.co.uk/' },
+              { name: 'PCBL', url: 'https://www.pcblltd.com/' },
+            ],
+
+            supportingPartners: [
+              { name: 'IIM Calcutta', logo: 'http://googleusercontent.com/file_content/5' }, // IIMC Logo.png
+              { name: 'IIT Kanpur', logo: 'http://googleusercontent.com/file_content/4' }, // IIM K Logo.png (assuming this is IIT Kanpur)
+              { name: 'CII', logo: 'http://googleusercontent.com/file_content/3' }, // CII.jpg
+              { name: 'JICA', logo: 'http://googleusercontent.com/file_content/7' }, // JICA-LOGO.png
+              { name: 'DPIIT', logo: 'http://googleusercontent.com/file_content/2' }, // 765e27a8cd3f5e09b28043602cf5e557d4.jpg
+            ]
+          };
+
+          const renderChart = () => {
+            let data, title;
+            switch (activeChart) {
+              case 'workExperience':
+                data = batchData.workExperienceDistribution;
+                title = 'Work Experience Distribution';
+                break;
+              case 'industry':
+                data = batchData.industryDistribution;
+                title = 'Industry-wise Distribution';
+                break;
+              case 'functional':
+                data = batchData.functionalExposure;
+                title = 'Functional Exposure';
+                break;
+              case 'composition':
+                data = batchData.batchComposition;
+                title = 'Batch Composition';
+                break;
+              default:
+                data = batchData.workExperienceDistribution;
+                title = 'Work Experience Distribution';
+            }
+
+            return (
+              <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md h-full flex flex-col">
+                <h3 className="text-xl font-semibold text-gray-700 mb-4 text-center">{title}</h3>
+                <ResponsiveContainer width="100%" height={250}> {/* Reduced height for charts */}
+                  <PieChart>
+                    <Pie
+                      data={data}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      outerRadius={90} // Slightly smaller radius
+                      fill="#8884d8"
+                      dataKey="value"
+                      nameKey="name"
+                      label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                    >
+                      {data.map((entry, index) => (
+                        <Cell key={`cell-${activeChart}-${index}`} fill={COLORS_MONOCHROME[index % COLORS_MONOCHROME.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip formatter={(value) => `${value}%`} />
+                    <Legend layout="horizontal" align="center" verticalAlign="bottom" />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+            );
+          };
+
+          return (
+            <div className="min-h-screen bg-violet-50 font-inter text-gray-800 p-4 sm:p-6 lg:p-8 flex flex-col">
+              {/* Header Section */}
+              <header className="text-center mb-4 bg-white p-4 rounded-xl shadow-lg flex-shrink-0">
+                {/* VLMP Logo */}
+                <img src="http://googleusercontent.com/file_content/8" alt="VLMP Logo" className="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" /> {/* VLMP_logo.png */}
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-violet-800 mb-1">
+                  PGPEx-VLM Batch Profile
+                </h1>
+                <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-700 mb-1">
+                  {batchData.programName}
+                </h2>
+                <p className="text-sm sm:text-base text-gray-600 italic">
+                  {batchData.batchInfo}
+                </p>
+                <p className="text-base sm:text-lg font-medium text-violet-700 mt-2 max-w-3xl mx-auto">
+                  "{batchData.tagline}"
+                </p>
+              </header>
+
+              {/* Key Highlights Section */}
+              <section className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4 flex-shrink-0">
+                <div className="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+                  <p className="text-3xl font-bold text-violet-700">{batchData.batchSize}</p>
+                  <p className="text-sm text-gray-600 mt-1">Batch Size</p>
+                </div>
+                <div className="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+                  <p className="text-3xl font-bold text-violet-700">{batchData.averageAge}</p>
+                  <p className="text-sm text-gray-600 mt-1">Avg. Age</p>
+                </div>
+                <div className="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+                  <p className="text-3xl font-bold text-violet-700">{batchData.averageWorkExperience}</p>
+                  <p className="text-sm text-gray-600 mt-1">Avg. Work Exp. (Yrs)</p>
+                </div>
+                <div className="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+                  <p className="text-3xl font-bold text-violet-700">{batchData.globalExposure}%</p>
+                  <p className="text-sm text-gray-600 mt-1">Global Exposure</p>
+                </div>
+                <div className="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center">
+                  <p className="text-3xl font-bold text-violet-700">{batchData.nitIitPsuPercentage}%</p>
+                  <p className="text-sm text-gray-600 mt-1">From NIT, IIT & PSU</p>
+                </div>
+              </section>
+
+              {/* Charts Section with Tabs */}
+              <section className="flex-grow min-h-0 flex flex-col">
+                <div className="bg-white p-4 rounded-xl shadow-md mb-4 flex-grow flex flex-col">
+                  {/* Chart Navigation Tabs */}
+                  <div className="flex flex-wrap justify-center gap-2 mb-4 flex-shrink-0">
+                    <button
+                      onClick={() => setActiveChart('workExperience')}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                        activeChart === 'workExperience' ? 'bg-violet-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      }`}
+                    >
+                      Work Exp.
+                    </button>
+                    <button
+                      onClick={() => setActiveChart('industry')}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                        activeChart === 'industry' ? 'bg-violet-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      }`}
+                    >
+                      Industry
+                    </button>
+                    <button
+                      onClick={() => setActiveChart('functional')}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                        activeChart === 'functional' ? 'bg-violet-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      }`}
+                    >
+                      Functional
+                    </button>
+                    <button
+                      onClick={() => setActiveChart('composition')}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                        activeChart === 'composition' ? 'bg-violet-600 text-white shadow-md' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      }`}
+                    >
+                      Composition
+                    </button>
+                  </div>
+                  {renderChart()}
+                </div>
+              </section>
+
+              {/* Professional Background Section */}
+              <section className="bg-white p-4 rounded-xl shadow-md mb-4 flex-shrink-0">
+                <h3 className="text-xl font-semibold text-gray-700 mb-3 text-center">Professional Background</h3>
+                <div className="flex flex-wrap justify-center gap-2 max-h-24 overflow-y-auto custom-scrollbar">
+                  {batchData.professionalBackgroundCompanies.map((company, index) => (
+                    <a
+                      key={index}
+                      href={company.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-violet-100 text-violet-800 px-3 py-1 rounded-full text-xs font-medium shadow-sm hover:bg-violet-200 hover:text-violet-900 transition-colors duration-200"
+                    >
+                      {company.name}
+                    </a>
+                  ))}
+                </div>
+              </section>
+
+              {/* Supporting Partners Section */}
+              <section className="bg-white p-4 rounded-xl shadow-md flex-shrink-0">
+                <h3 className="text-xl font-semibold text-gray-700 mb-3 text-center">Supporting & Consulting Partners</h3>
+                <div className="flex flex-wrap justify-center items-center gap-4">
+                  {batchData.supportingPartners.map((partner, index) => (
+                    <img
+                      key={index}
+                      src={partner.logo}
+                      alt={`${partner.name} Logo`}
+                      className="h-12 object-contain rounded-md"
+                      onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/100x50/F0F8FF/000080?text=Logo+Missing"; }} // Fallback for broken images
+                    />
+                  ))}
+                </div>
+                <p className="text-center text-gray-600 mt-3 text-xs">
+                  INDIAN INSTITUTE OF MANAGEMENT CALCUTTA | INDIAN INSTITUTE OF TECHNOLOGY KANPUR | DEPARTMENT FOR PROMOTION OF INDUSTRY AND INTERNAL TRADE, MINISTRY OF COMMERCE & INDUSTRY, GOVERNMENT OF INDIA
+                </p>
+              </section>
+            </div>
+          );
+        };
+
+        ReactDOM.render(<PGPExVLMProfileDashboard />, document.getElementById('root'));
+    </script>
+</body>
+</html>
