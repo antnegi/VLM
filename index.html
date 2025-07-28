@@ -129,12 +129,12 @@
             ],
 
             supportingPartners: [
-                { name: 'IIM Calcutta', logo: 'iimc_logo.png' },
-                { name: 'IIT Kanpur', logo: 'iit_kanpur_logo.png' },
-                { name: 'IIT Madras', logo: 'iit_madras_logo.png' }, // Added IIT Madras logo
-                { name: 'CII', logo: 'cii_logo.jpg' },
-                { name: 'JICA', logo: 'jica_logo.png' },
-                { name: 'DPIIT', logo: 'dpiit_logo.jpg' },
+                { name: 'IIM Calcutta', logo: 'iimc_logo.png', url: 'https://www.iimcal.ac.in/' },
+                { name: 'IIT Kanpur', logo: 'iit_kanpur_logo.png', url: 'https://www.iitk.ac.in/' },
+                { name: 'IIT Madras', logo: 'iit_madras_logo.png', url: 'https://www.iitm.ac.in/' },
+                { name: 'CII', logo: 'cii_logo.jpg', url: 'https://www.cii.in/' },
+                { name: 'JICA', logo: 'jica_logo.png', url: 'https://www.jica.go.jp/english/overseas/india/index.html' },
+                { name: 'DPIIT', logo: 'dpiit_logo.jpg', url: 'https://www.dpiit.gov.in/' },
             ]
         };
 
@@ -261,8 +261,10 @@
             const partnersSection = document.createElement('section');
             partnersSection.className = 'bg-white p-4 rounded-xl shadow-md flex-shrink-0';
             let partnerLogosHtml = batchData.supportingPartners.map(partner => `
-                <img src="${partner.logo}" alt="${partner.name} Logo" class="h-12 object-contain rounded-md"
-                     onerror="this.onerror=null;this.src='https://placehold.co/100x50/F0F8FF/000080?text=Logo+Missing';">
+                <a href="${partner.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
+                    <img src="${partner.logo}" alt="${partner.name} Logo" class="h-12 object-contain rounded-md"
+                         onerror="this.onerror=null;this.src='https://placehold.co/100x50/F0F8FF/000080?text=Logo+Missing';">
+                </a>
             `).join('');
             partnersSection.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">Supporting & Consulting Partners</h3>
@@ -270,7 +272,7 @@
                     ${partnerLogosHtml}
                 </div>
                 <p class="text-center text-gray-600 mt-3 text-xs">
-                    INDIAN INSTITUTE OF MANAGEMENT CALCUTTA | INDIAN INSTITUTE OF TECHNOLOGY KANPUR | DEPARTMENT FOR PROMOTION OF INDUSTRY AND INTERNAL TRADE, MINISTRY OF COMMERCE & INDUSTRY, GOVERNMENT OF INDIA
+                    INDIAN INSTITUTE OF MANAGEMENT CALCUTTA | INDIAN INSTITUTE OF TECHNOLOGY KANPUR | INDIAN INSTITUTE OF TECHNOLOGY MADRAS | DEPARTMENT FOR PROMOTION OF INDUSTRY AND INTERNAL TRADE, MINISTRY OF COMMERCE & INDUSTRY, GOVERNMENT OF INDIA
                 </p>
             `;
             root.appendChild(partnersSection);
