@@ -37,6 +37,25 @@
         .chart-canvas.active {
             display: block;
         }
+        /* Ensure logos in scrolling section don't shrink */
+        .logo-scroll-item {
+            flex-shrink: 0;
+        }
+
+        /* Keyframes for horizontal scrolling animation */
+        @keyframes scroll-left-to-right {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%); /* Moves half the width of duplicated content */
+            }
+        }
+
+        /* Apply animation to the scrolling container */
+        .past-recruiters-scroll-container {
+            animation: scroll-left-to-right 30s linear infinite; /* Adjust time for speed */
+        }
     </style>
 </head>
 <body class="min-h-screen bg-[#F8F8F8] font-inter text-gray-800 p-4 sm:p-6 lg:p-8 flex flex-col">
@@ -136,6 +155,14 @@
                 { name: 'JICA', logo: 'jica_logo.png', url: 'https://www.jica.go.jp/english/overseas/india/index.html' },
                 { name: 'DPIIT', logo: 'dpiit_logo.jpg', url: 'https://www.dpiit.gov.in/' },
             ],
+            pastRecruiters: [
+                { name: 'TVS', logo: 'https://static.vecteezy.com/system/resources/previews/020/336/393/original/tvs-logo-tvs-icon-transparent-png-free-vector.jpg', url: 'https://www.tvsmotor.com/' },
+                { name: 'BCG', logo: 'https://cdnimg.bnamericas.com/ocYRRDTmJmhfWmzHqEbNDCSgzQwlQStsLxaUdFpMkPxsFTnNPZbHCCzKYCVwpjXW.png', url: 'https://www.bcg.com/india' },
+                { name: 'Deloitte', logo: 'https://tse3.mm.bing.net/th/id/OIP.rOqG0xHRyB1DyDJPCvkySQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://www.deloitte.com/in/en.html' },
+                { name: 'Airbus', logo: 'https://th.bing.com/th/id/R.99b3e52e74903cbe3c903a278ad1c013?rik=mrn3VHu4od05lA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fairbus-logo-vector-png-airbus-logo-vector-by-windytheplaneh-airbus-logo-vector-by-windytheplaneh-5656.png&ehk=UVMmyJe%2f%2fFXmgA9aUIUfjsEKFHovXXFV6eRWBWfjSTg%3d&risl=&pid=ImgRaw&r=0', url: 'https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-asia-pacific/airbus-in-india' },
+                { name: 'Genpact', logo: 'https://tse1.mm.bing.net/th/id/OIP.ePJOL-LkCarEqIdJmfL_WwHaFd?rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://www.genpact.com/' },
+                { name: 'McKinsey', logo: 'https://1000logos.net/wp-content/uploads/2021/09/McKinsey-Logo.png', url: 'https://www.mckinsey.com/in/overview' },
+            ],
             programHighlightsContent: [
                 "**Visionary Leadership:** Develops leaders with a strategic outlook for manufacturing excellence.",
                 "**Global Exposure:** Focus on international best practices and global supply chains.",
@@ -199,13 +226,13 @@
             programHighlightsSection.className = 'bg-white p-4 rounded-xl shadow-md mb-4 flex-shrink-0';
             let highlightsListHtml = batchData.programHighlightsContent.map(item => `
                 <li class="flex items-start mb-2">
-                    <img src="airplane_icon.png" alt="Highlight Icon" class="w-5 h-5 mr-2 flex-shrink-0" />
+                    <svg class="w-5 h-5 text-[${HIGHLIGHT_TEXT}] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                     <p class="text-gray-700 text-sm sm:text-base">${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
                 </li>
             `).join('');
             programHighlightsSection.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <img src="airplane_icon.png" alt="Program Highlights Icon" class="w-6 h-6 mr-2" />
+                    <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                     Program Highlights
                 </h3>
                 <ul class="list-none p-0 m-0 text-left max-w-2xl mx-auto">
@@ -216,35 +243,35 @@
 
             // Key Highlights Section
             const highlights = document.createElement('section');
-            highlights.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4 flex-shrink-0';
+            highlights.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-4 flex-shrink-0'; // Adjusted grid for 6 items
             highlights.innerHTML = `
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <img src="airplane_icon.png" alt="Batch Size Icon" class="w-8 h-8 mb-1" />
+                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18H4v-1a4 4 0 014-4h4a4 4 0 014 4v1z"></path></svg>
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.batchSize}</p>
                     <p class="text-sm text-gray-600 mt-1">Batch Size</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <img src="airplane_icon.png" alt="Sample Icon" class="w-8 h-8 mb-1" />
+                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">69%</p>
                     <p class="text-sm text-gray-600 mt-1">Sample</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <img src="airplane_icon.png" alt="Average Age Icon" class="w-8 h-8 mb-1" />
+                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.averageAge}</p>
                     <p class="text-sm text-gray-600 mt-1">Avg. Age</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <img src="airplane_icon.png" alt="Work Exp Icon" class="w-8 h-8 mb-1" />
+                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.averageWorkExperience}</p>
                     <p class="text-sm text-gray-600 mt-1">Avg. Work Exp. (Yrs)</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <img src="airplane_icon.png" alt="Global Exposure Icon" class="w-8 h-8 mb-1" />
+                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 1.586l-4 4V14a2 2 0 002 2h7a2 2 0 002-2V7.586l-4-4zM10 16V4.586l-2-2V4a2 2 0 00-2 2v7a2 2 0 002 2h7l-2-2h-3z" clip-rule="evenodd"></path></svg>
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.globalExposure}%</p>
                     <p class="text-sm text-gray-600 mt-1">Global Exposure</p>
                 </div>
                 <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <img src="airplane_icon.png" alt="NIT, IIT & PSU Icon" class="w-8 h-8 mb-1" />
+                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.394 2.08a1 1 0 00-.788 0L.245 9.179A1 1 0 001 10.957V18a2 2 0 002 2h14a2 2 0 002-2v-7.043a1 1 0 00.755-1.778L10.394 2.08zM11 14a1 1 0 10-2 0v3a1 1 0 102 0v-3z"></path></svg>
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.nitIitPsuPercentage}%</p>
                     <p class="text-sm text-gray-600 mt-1">From NIT, IIT & PSU</p>
                 </div>
@@ -257,7 +284,7 @@
             chartsSection.innerHTML = `
                 <div class="bg-white p-4 rounded-xl shadow-md mb-4 flex-grow flex flex-col">
                     <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                        <img src="airplane_icon.png" alt="Batch Analytics Icon" class="w-6 h-6 mr-2" />
+                        <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
                         Batch Analytics
                     </h3>
                     <div id="chart-tabs" class="flex flex-wrap justify-center gap-2 mb-4 flex-shrink-0">
@@ -292,7 +319,7 @@
             `).join('');
             professionalBackground.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <img src="airplane_icon.png" alt="Professional Background Icon" class="w-6 h-6 mr-2" />
+                    <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
                     Professional Background
                 </h3>
                 <div class="flex flex-wrap justify-center gap-2 max-h-24 overflow-y-auto custom-scrollbar">
@@ -300,6 +327,29 @@
                 </div>
             `;
             root.appendChild(professionalBackground);
+
+            // Past Recruiters Section
+            const pastRecruitersSection = document.createElement('section');
+            pastRecruitersSection.className = 'bg-white p-4 rounded-xl shadow-md mb-4 flex-shrink-0';
+            let recruiterLogosHtml = [...batchData.pastRecruiters, ...batchData.pastRecruiters].map(recruiter => `
+                <a href="${recruiter.url}" target="_blank" rel="noopener noreferrer" class="logo-scroll-item flex-shrink-0 flex items-center justify-center p-2">
+                    <img src="${recruiter.logo}" alt="${recruiter.name} Logo" class="h-16 object-contain"
+                         onerror="this.onerror=null;this.src='https://placehold.co/100x60/F0F8FF/000080?text=${recruiter.name}';">
+                </a>
+            `).join('');
+            pastRecruitersSection.innerHTML = `
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
+                    <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.586l-2.707 2.707A3 3 0 0115 16.586V18a2 2 0 01-2 2H7a2 2 0 01-2-2v-1.414A3 3 0 014.293 12.293L2 9.586V8a2 2 0 012-2h2zm2-3a1 1 0 00-1 1v1h4V4a1 1 0 00-1-1H8zm11 9.586l-2.293 2.293A3 3 0 0112.414 16H13a1 1 0 001-1v-4.586zM5 12.414A3 3 0 014.293 11.707L2 9.586V15a1 1 0 001 1h.586l.293-.293A3 3 0 015 12.414z" clip-rule="evenodd"></path></svg>
+                    Past Recruiters
+                </h3>
+                <div class="flex overflow-x-hidden whitespace-nowrap py-2" style="width: 100%;">
+                    <div class="past-recruiters-scroll-container flex space-x-8">
+                        ${recruiterLogosHtml}
+                    </div>
+                </div>
+            `;
+            root.appendChild(pastRecruitersSection);
+
 
             // Supporting Partners Section
             const partnersSection = document.createElement('section');
@@ -312,7 +362,7 @@
             `).join('');
             partnersSection.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <img src="airplane_icon.png" alt="Partners Icon" class="w-6 h-6 mr-2" />
+                    <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
                     Supporting & Consulting Partners
                 </h3>
                 <div class="flex flex-wrap justify-center items-center gap-4">
