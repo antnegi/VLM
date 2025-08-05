@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGPEx-VLM Batch 19</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Sticky Header Row (all th elements) */
+        th {
+            position: sticky;
+            top: 0;
+            z-index: 20; /* High z-index to stay on top of scrolling content */
+            background-color: #009879; /* Ensure header background is solid */
+        }
+
+        /* Sticky "Serial No." Column */
+        .sticky-serial-no {
+            position: sticky;
+            left: 0;
+            z-index: 15; /* Between header and normal cells */
+            background-color: #ffffff; /* Default background for data cells */
+        }
+        /* Adjust background for even rows for sticky Serial No. column */
+        tbody tr:nth-of-type(even) .sticky-serial-no {
+            background-color: #f3f3f3;
+        }
+        /* Ensure the header cell for Serial No. matches header background */
+        thead .sticky-serial-no {
+            background-color: #009879;
+        }
+
+        /* Sticky "Name" Column */
+        /* The 'left' value for the Name column is the estimated width of the Serial No. column */
+        .sticky-name-col {
+            position: sticky;
+            left: 80px; /* Approximate width of the "Serial No." column + padding */
+            z-index: 15; /* Same z-index as Serial No. to stack correctly */
+            background-color: #ffffff; /* Default background for data cells */
+        }
+        /* Adjust background for even rows for sticky Name column */
+        tbody tr:nth-of-type(even) .sticky-name-col {
+            background-color: #f3f3f3;
+        }
+        /* Ensure the header cell for Name matches header background */
+        thead .sticky-name-col {
+            background-color: #009879;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
+
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-8 text-center drop-shadow-lg">
+        PGPEx-VLM Batch 19
+    </h1>
+
+    <div class="w-full max-w-7xl overflow-x-auto rounded-lg shadow-xl border border-gray-200">
+        <table class="min-w-full divide-y divide-gray-200 bg-white rounded-lg">
+            <thead class="bg-blue-600 text-white">
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider rounded-tl-lg sticky-serial-no">Serial No.</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider sticky-name-col">Name</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Email</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Contact</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">DOB</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Age</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">College Name</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Specialisation</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Current Role/Position</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Current Organisation</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Domain</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Function</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Job Experience</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Work Experience as on 01.04.2025 (in years)</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Location</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Hometown</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider">Hobbies</th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider rounded-tr-lg">LinkedIn Profile</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Aayush Sinha</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:aayushsinha921@gmail.com" class="hover:underline">aayushsinha921@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6350531762</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">01/08/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.0</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">NIT Jaipur</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (Mechanical Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Deputy Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Maruti Suzuki India Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Automotive</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Delhi (NCR)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Cricket, Public Speaking</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Aayush LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">2</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Abhinav Shukla</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:abhinavshukla2288@gmail.com" class="hover:underline">abhinavshukla2288@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7976949981</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">19/08/1992</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">32.9</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (EEE)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Tata Steel Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Quality Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8.70</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">3</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Abhishek Pratap</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:abhishekreso123@gmail.com" class="hover:underline">abhishekreso123@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9113638416</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">08/07/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">MS Ramaiah Institute of Technology, Bengaluru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Mechanical</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Exide Energy Solution Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bengaluru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Media channel, Content creation</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Abhishek Pratap LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Akshya Dixit</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:akshayknp24@gmail.com" class="hover:underline">akshayknp24@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7376038275</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">05/08/1993</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">32.0</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.tech (Electronics Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Deputy Manager (Global Strategic Procurement)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Samvardhana Motherson International Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Automotive</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Suppy Chain & Sourcing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Amith Kumar Sahu</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:sahuamithkumar1995@gmail.com" class="hover:underline">sahuamithkumar1995@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9178614392</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">10/04/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.3</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metallurgy and material engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Senior Executive</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Tata Bluescope Steel pvt ltd.</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Suppy Chain & Sourcing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Delhi (NCR)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Jamshedpur</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Guitar, Singing, Dancing, Athletics</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Angel Mariya</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:angelclare443@gmail.com" class="hover:underline">angelclare443@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9562563859</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">15/03/1993</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">32.4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">University of calicut</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (Electronics and Communication engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Technical Team Lead</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Tata Consultancy Services</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Power & Energy</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bengaluru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Kerela</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Reading, Painting, Photography</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Angel Mariya LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Antriksh</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:antrikshigen@gmail.com" class="hover:underline">antrikshigen@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7980801931</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">13/12/1996</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">DMET Kolkata</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (Marine)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Third Engineer</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">AG Maritime Private Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Maritime</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Remote</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Chandigarh</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Badminton, Chess, Reading, Socializing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Antriksh LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Anubhav Ray</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:anubhavray14@gmail.com" class="hover:underline">anubhavray14@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7538995800</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">23/07/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.0</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">CIPET Bhubaneswar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E ( Manufacturing Engineering & Technology)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Senior Operations Engineer</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">AARTI STEELS LIMITED</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bhubaneswar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Travel, Trekking, Cricket, Table Tennis</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Anubhav Ray LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">9</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Deepak Raghuwanshi</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:raghuwanshi.deepak1995@gmail.com" class="hover:underline">raghuwanshi.deepak1995@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9629782443</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">23/10/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">29.8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Vellore Institute of Technology</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech(Electrical & Electronics)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Assistant Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Indkal Technologies Pvt Ltd</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">White goods/Customer Durables</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bengaluru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Deepak Raghuwanshi</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">10</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Ishav Singh</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:ishvsingh26@gmail.com" class="hover:underline">ishvsingh26@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8567991185</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">26/06/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Punjab Technical University</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B-Tech(Mechanical)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Senior Manager- Product Development</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Hawkins Cookers Ltd.</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing- Consumer Household Goods</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">NPD- New Launches( SCM- Operations, Project Management,Quality Management)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Mumbai</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Ishav Singh</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">11</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Jayati Priya</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:jayatipriya7@gmail.com" class="hover:underline">jayatipriya7@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8405012522</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">11/03/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Banasthali Vidyapith</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Electronics and Instrumentation</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Senior Data Scientist</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">The Math Company</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.66</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bengaluru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Jayati Priya LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">12</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Kunal Kumar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:kunal.iitbhu15@gmail.com" class="hover:underline">kunal.iitbhu15@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8004279496</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">11/11/1996</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (Metallurgical Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Hindalco Industries Ltd</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Sales, After Sales & Marketing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">13</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Lingeshwaran</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:lingeshwaran97@gmail.com" class="hover:underline">lingeshwaran97@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9600193010</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">24/08/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">27.9</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">CEG, Anna University</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E., Mechanical engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Deputy Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Coromandel International Limited, Murugappa group</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Chennai</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Cricket, Cycling</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Lingeshwaran LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">14</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Mahesh</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:maheshvarma09@gmail.com" class="hover:underline">maheshvarma09@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9676990935</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">09/01/1996</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">29.6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (Mechanical)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Associate Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Vedanta Aluminium Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.80</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bengaluru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bike Riding, Volleyball, Socializing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">15</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Mani Ratnam</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:Ratnam2803@gmail.com" class="hover:underline">Ratnam2803@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9176844072</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28/03/1994</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">31.3</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E - Mechanical Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Associate specialist - Technical Proposals</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Kellogg brown and root engineering & construction india Private Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Oil & Gas</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7.66</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">16</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Manishankar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:manisankar.c123@gmail.com" class="hover:underline">manisankar.c123@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8056622939</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">16/06/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">BE Mechanical</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Sourcing Lead</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">GEP</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Suppy Chain & Sourcing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.60</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Chennai</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Badminton</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Manishankar LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">17</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Mrutyunjay Sarangi</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:dillipsarangi47@gmail.com" class="hover:underline">dillipsarangi47@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28/10/1989</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">35.8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E mech , pg in welding</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Senior engineer</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">CIM TOOLS PRIVATE LIMITED</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Aerospace sector</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Welding Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">4.6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Mrutyunjay Sarangi LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">18</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">N. Soma Sundaram</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:Somasundaramnagappan1@gmail.com" class="hover:underline">Somasundaramnagappan1@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8754303112</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">27/08/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">27.9</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B tech (Electrical)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Sr Area Manager Problem Solving</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Tata Steel</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Quality Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">4.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">10</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bengaluru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Table Tennis, Basketball</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">19</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Nitish Thakur</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:nitishsparx46@outlook.com" class="hover:underline">nitishsparx46@outlook.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">04/02/1991</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">34.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech in Metallurgical and Materials Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Tata Consulting Engineers Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7.8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Nitish Thakur LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">20</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Papit</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:pks23495@gmail.com" class="hover:underline">pks23495@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9776275256</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">23/04/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.3</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E. (Mechanical)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Engineer - Magnetron Coater</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">21</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Pragadeesh Suhan</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:pragadeeshsuhan@gmail.com" class="hover:underline">pragadeeshsuhan@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9176236889</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">29/05/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.2</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E. (Mechanical Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Supply Chain Analyst</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Saint Gobain India Private Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Automotive</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Suppy Chain & Sourcing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Chennai</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Music, Cooking</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">22</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Prathamesh</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:prathameshg129@gmail.com" class="hover:underline">prathameshg129@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7057535457</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">12/09/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">27.9</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Wadia College, Pune</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E (Mechanical)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">LMAQ Quality specialist</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Jaguar Land Rover Technology & Business Services India</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">E - Commerce</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Suppy Chain & Sourcing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Pune</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Sketching, Chess, Hiking, Music</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Prathamesh LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">23</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Ram kumar Murugan</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:ramkumarmurugan988@gmail.com" class="hover:underline">ramkumarmurugan988@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8489141739</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">17/10/1998</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">26.8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B. Tech - Mechanical Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Mechanical Design Engineer</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">CNH Industrial</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Automotive</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Hyderabad</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Content Creation, Meme-making</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Ramkumar LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">24</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Ravi Kumar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:07ravikr@gmail.com" class="hover:underline">07ravikr@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9784831663</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">07/09/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">27.9</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Mtech (Mechanical)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Software Consultent</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Hexagon</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Software Solutions for Core Industries</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Quality Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Delhi (NCR)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Musical Instruments</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Ravi LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">25</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Rushabh Bhoyar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:rushabhbhy@gmail.com" class="hover:underline">rushabhbhy@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8087124033</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">16/03/1996</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">29.4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">National Power Training Institute, Gopal Nagar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E (Power Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Assistant Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">PCBL</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Power & Energy</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7.90</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">4.9</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Gujarat</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Nagpur</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Rushabh Bhoyar LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">26</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Saideep Pawaskar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:saideep_pavaskar.sp@gmail.com" class="hover:underline">saideep_pavaskar.sp@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8605413462</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">01/02/1994</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">31.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Dr. BA Technological University</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B. Tech in Chemical Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Senior Engineer</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Rashtriya Chemicals and Fertilizers Ltd</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Mumbai</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Working Out, Badminton</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Saideep Pawaskar LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">27</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Samiksha Dhar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:samikshadhar1996@gmail.com" class="hover:underline">samikshadhar1996@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8902153388</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">16/09/1996</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.9</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">West Bengal University of Technology</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B. Tech (Computer Science Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Consultant</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Deloitte Consulting India Private Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Consulting</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Business Excellence & Strategy</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Delhi (NCR)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Samiksha LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">28</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Santosh Pinjari</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:santosh.s.pinjari@gmail.com" class="hover:underline">santosh.s.pinjari@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9689713305</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">23/03/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Rajendra Mane College of Engineering & Technology, Ratnagiri</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">BE Mechanical, MMS -Operations Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Senior Executive</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Phoenix Innovative Healthcare Manufacturers Pvt. Ltd</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Suppy Chain & Sourcing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Pune</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Santosh Pinjari LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">29</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Saptarshi Mukherjee</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:mukherjeesaptarshi781993@gmail.com" class="hover:underline">mukherjeesaptarshi781993@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8906538258</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">07/08/1993</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">32.0</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.TECH (POWER ENGINEERING)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">ASSISTANT MANAGER</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">VEDANTA LIMITED</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Suppy Chain & Sourcing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Saptarshi Mukherjee LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">30</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Shashank</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:shashusmg@gmail.com" class="hover:underline">shashusmg@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8762342676</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">10/06/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">NIE Mysore</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E (Mechanical</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Senior Engineer</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bhoruka Extrusions Pvt Ltd (YKK group)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.25</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Mysuru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">-</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Shashank LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">31</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Shivam Maury</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:shivammaury@gmail.com" class="hover:underline">shivammaury@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8840874558</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28/02/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">SLIET Longowal</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E. (Electrical Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Engineer</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Lucid Imaging Problem Ltd</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Patna</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Badminton, Football, Trekking</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Shivam Maury LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">32</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Snehasis Pattanaik</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:pattanaiksnehasis@gmail.com" class="hover:underline">pattanaiksnehasis@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9821939041</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">04/05/1994</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">31.2</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">KIIT University</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech(Mechanical Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Assistant Manager- Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Hindustan Petroleum Corporation Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Oil & Gas</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bhubaneswar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Cricket, Philosophy Reading</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Snehasis LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">33</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Soumyajit Karmakar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:Soumyajitk16@gmail.com" class="hover:underline">Soumyajitk16@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9038687909</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">05/11/1994</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Swami Vivekananda Institute of Science & Technology</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B. Tech. in Mechanical Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manager Production</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Vesuvius India Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manufacturing</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Soumyajit Karmakar</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">34</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Suraj Kumar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:suraj7159765@gmail.com" class="hover:underline">suraj7159765@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">9934387325</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">06/12/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">29.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (METALLURGICAL ENGINEERING)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">ASSOCIATE MANAGER</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">VEDANTA ALUMINIUM LIMITED JHARSUGUDA</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Suraj Kumar LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">35</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Surya pratap Singh</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:surya12798@gmail.com" class="hover:underline">surya12798@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7328826842</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">12/07/1998</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">27.1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">IIT(ISM) Dhanbad</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (Chemical Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Hindalco Industries Limited (Aditya Birla Group)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Surya Pratap Singh</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">36</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Tanishka Rathi</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:tanishka.rathi@yahoo.com" class="hover:underline">tanishka.rathi@yahoo.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8793275234</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">27/03/1997</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">28.3</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">VNIT, Nagpur</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B. Tech (Metallurgical and Materials Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Materials Engineer</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">ExxonMobil</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Oil & Gas</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Engineering</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Bengaluru</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Nagpur</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Hiking, Creative Writing, Fiction Reading</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Tanishka Rathi LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">37</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Uday Mehrotra</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:udaymehrotra.7@gmail.com" class="hover:underline">udaymehrotra.7@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8982230773</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">26/02/1994</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">31.4</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Jaypee University</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech ( Mechanical )</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Nuvepro Technologies</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">IT (Cloud Management Solutions for Skill Development)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Project Management</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.00</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Delhi (NCR)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Reading, Health Improvement, Public Speaking</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Uday Mehrotra LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">38</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Vikhas Ranjan</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:vikas.ranjan@tatabluescopesteel.com" class="hover:underline">vikas.ranjan@tatabluescopesteel.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">7209841186</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">11/10/1992</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">32.8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.E.(Metallurgical Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">ASSISTANT MANAGER</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">TATA BLUESCOPE STEEL</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Metal & Mining</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8.50</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">39</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Vishal</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:vishvishalkumar1208@gmail.com" class="hover:underline">vishvishalkumar1208@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8709258447</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">01/02/1996</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">29.5</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">NIFFT</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B. Tech ( Manufacturing Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Assistant Manager</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Hero MotoCorp Ltd.</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Automotive</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Research & Development</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.7</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Jaipur</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Cricket, Hiking</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Vishal LinkedIn</a></td>
+                </tr>
+                <tr class="hover:bg-gray-50 transition-colors duration-200">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 sticky-serial-no">40</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky-name-col">Vishal Kumar</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="mailto:kumar.vishal2407@gmail.com" class="hover:underline">kumar.vishal2407@gmail.com</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">8409874165</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">24/07/1995</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">30.0</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">NIT Agartala</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">B.Tech (Electronics & Instrumentation Engineering)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Engineer Instrumentation</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Reliance Industries Limited</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Oil & Gas</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Operations</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.30</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">6.1</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Delhi (NCR)</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">Cricket, Running</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-blue-600"><a href="#" target="_blank" class="hover:underline">Vishal Kumar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -13,6 +13,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            /* Subtle gradient background for the body */
+            background: linear-gradient(to bottom right, #F8F8F8, #EFF3F6);
         }
         /* Custom scrollbar for professional background section */
         .custom-scrollbar::-webkit-scrollbar {
@@ -58,7 +60,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-[#F8F8F8] font-inter text-gray-800 p-4 sm:p-6 lg:p-8 flex flex-col">
+<body class="min-h-screen font-inter text-gray-800 p-4 sm:p-6 lg:p-8 flex flex-col">
     <div id="dashboard-root" class="w-full h-full flex flex-col">
         <!-- Dashboard content will be rendered here by JavaScript -->
     </div>
@@ -107,53 +109,59 @@
                 { name: 'Business Excellence/Strategy', value: 5 },
                 { name: 'Others', value: 15 },
             ],
+            
+            pastRecords: {
+                '2025': { mean: 22, median: 24, mode: 19 },
+                '2024': { mean: 25, median: 26, mode: 19 },
+                '2023': { mean: 21, median: 21, mode: 19 }
+            },
 
             professionalBackgroundCompanies: [
                 { name: 'MARUTI SUZUKI', url: 'https://www.marutisuzuki.com/' },
-                { name: 'Hero', url: 'https://www.heromotocorp.com/' },
-                { name: 'Vedanta', url: 'https://www.vedantalimited.com/' },
-                { name: 'ExxonMobil', url: 'https://corporate.exxonmobil.com/locations/india' },
+                { name: 'HERO', url: 'https://www.heromotocorp.com/' },
+                { name: 'VEDANTA', url: 'https://www.vedantalimited.com/' },
+                { name: 'EXXONMOBIL', url: 'https://corporate.exxonmobil.com/locations/india' },
                 { name: 'LAND-ROVER', url: 'https://www.tatamotors.com/brands/land-rover/' },
                 { name: 'EXIDE', url: 'https://www.exideindustries.com/' },
                 { name: 'JAGUAR', url: 'https://www.tatamotors.com/brands/jaguar/' },
-                { name: 'nuvepro', url: 'https://nuvepro.com/' },
-                { name: 'Deloitte.', url: 'https://www.deloitte.com/in/en.html' },
+                { name: 'NUVEPRO', url: 'https://nuvepro.com/' },
+                { name: 'DELOITTE.', url: 'https://www.deloitte.com/in/en.html' },
                 { name: 'TCS', url: 'https://www.tcs.com/in-en' },
-                { name: 'Reliance', url: 'https://www.ril.com/' },
+                { name: 'RELIANCE', url: 'https://www.ril.com/' },
                 { name: 'HP', url: 'https://www.hp.com/in-en/home.html' },
-                { name: 'amazon', url: 'https://www.amazon.in/' },
+                { name: 'AMAZON', url: 'https://www.amazon.in/' },
                 { name: 'HEXAGON', url: 'https://hexagon.com/' },
-                { name: 'Aarti', url: 'https://www.aarti-industries.com/' },
+                { name: 'AARTI', url: 'https://www.aarti-industries.com/' },
                 { name: 'TATA STEEL', url: 'https://www.tatasteel.com/' },
                 { name: 'VESUVIUS', url: 'https://www.vesuvius.com/' },
                 { name: 'ADITYA BIRLA', url: 'https://www.adityabirlagroup.com/' },
-                { name: 'Phoenix', url: 'https://www.thephoenixmills.com/' },
+                { name: 'PHOENIX', url: 'https://www.thephoenixmills.com/' },
                 { name: 'TATA CONSULTING ENGINEERS LIMITED', url: 'https://www.tce.co.in/' },
-                { name: 'motherson', url: 'https://www.motherson.com/' },
-                { name: 'Industries Limited', url: 'https://www.ril.com/' },
+                { name: 'MOTHERSON', url: 'https://www.motherson.com/' },
+                { name: 'INDUSTRIES LIMITED', url: 'https://www.ril.com/' }, // Assuming Reliance Industries Limited
                 { name: 'HINDALCO', url: 'https://www.hindalco.com/' },
-                { name: 'The Math Company', url: 'https://www.themathcompany.com/' },
+                { name: 'THE MATH COMPANY', url: 'https://www.themathcompany.com/' },
                 { name: 'SAINT-GOBAIN', url: 'https://www.saint-gobain.co.in/' },
-                { name: 'Coromandel', url: 'https://www.coromandel.biz/' },
+                { name: 'COROMANDEL', url: 'https://www.coromandel.biz/' },
                 { name: 'INDKAL', url: 'https://indkal.com/' },
                 { name: 'KBR', url: 'https://www.kbr.com/en/what-we-do' },
                 { name: 'TATA BLUESCOPE STEEL', url: 'https://www.tatabluescopesteel.com/' },
-                { name: 'Hawkins', url: 'https://www.hawkinscookers.com/' },
+                { name: 'HAWKINS', url: 'https://www.hawkinscookers.com/' },
                 { name: 'BHORUKA', url: 'https://bhorukaextrusions.com/' },
                 { name: 'A YKK AF COMPANY', url: 'https://www.ykkap.co.jp/english/' },
                 { name: 'GEP', url: 'https://www.gep.com/careers/join-us/campus-connect/india' },
                 { name: 'CNH', url: 'https://www.cnhindustrial.com/en-in/' },
-                { name: 'AG Maritime', url: 'https://www.ag-maritime.com/company' },
+                { name: 'AG MARITIME', url: 'https://www.ag-maritime.com/company' },
                 { name: 'PCBL', url: 'https://www.pcblltd.com/' },
             ],
 
             supportingPartners: [
-                { name: 'IIM Calcutta', logo: 'iimc_logo.png', url: 'https://www.iimcal.ac.in/' },
-                { name: 'IIT Kanpur', logo: 'iit_kanpur_logo.png', url: 'https://www.iitk.ac.in/' },
-                { name: 'IIT Madras', logo: 'iit_madras_logo.png', url: 'https://www.iitm.ac.in/' },
-                { name: 'CII', logo: 'cii_logo.jpg', url: 'https://www.cii.in/' },
-                { name: 'JICA', logo: 'jica_logo.png', url: 'https://www.jica.go.jp/english/overseas/india/index.html' },
-                { name: 'DPIIT', logo: 'dpiit_logo.jpg', url: 'https://www.dpiit.gov.in/' },
+                { name: 'IIM Calcutta', logo: 'https://www.iimcal.ac.in/themes/custom/iimcal/logo.png', url: 'https://www.iimcal.ac.in/' },
+                { name: 'IIT Kanpur', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Indian_Institute_of_Technology%2C_Kanpur_Logo.svg/1200px-Indian_Institute_of_Technology%2C_Kanpur_Logo.svg.png', url: 'https://www.iitk.ac.in/' },
+                { name: 'IIT Madras', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/IIT_Madras_Logo.svg/1200px-IIT_Madras_Logo.svg.png', url: 'https://www.iitm.ac.in/' },
+                { name: 'CII', logo: 'https://www.cii.in/assets/images/logo.png', url: 'https://www.cii.in/' },
+                { name: 'JICA', logo: 'https://www.jica.go.jp/english/img/logo.gif', url: 'https://www.jica.go.jp/english/overseas/india/index.html' },
+                { name: 'DPIIT', logo: 'https://www.dpiit.gov.in/sites/all/themes/dpiit/logo.png', url: 'https://www.dpiit.gov.in/' },
             ],
             pastRecruiters: [
                 { name: 'TVS', logo: 'https://static.vecteezy.com/system/resources/previews/020/336/393/original/tvs-logo-tvs-icon-transparent-png-free-vector.jpg', url: 'https://www.tvsmotor.com/' },
@@ -172,18 +180,16 @@
             ]
         };
 
-        // Expanded set of pastel colors for charts and elements (more diverse)
+        // Professional and eye-catching color palette for charts
         const CHART_COLORS = [
-            '#ADD8E6', // Light Blue
-            '#A7D9B4', // Pastel Green
-            '#FFD1DC', // Pastel Pink
-            '#FFECB3', // Pastel Yellow
-            '#D1C4E9', // Pastel Lavender
-            '#FFC0CB', // Light Pink
-            '#C8E6C9', // Lighter Green
-            '#B3E0FF', // Lighter Blue
-            '#FFF8DC', // Cream
-            '#E6E6FA'  // Lavender Blush
+            '#4E342E', // Brown 800
+            '#5D4037', // Brown 700
+            '#6D4C41', // Brown 600
+            '#795548', // Brown 500
+            '#8D6E63', // Brown 400
+            '#A1887F', // Brown 300
+            '#BCAAA4', // Brown 200
+            '#D7CCC8'  // Brown 100
         ];
 
         // Main theme colors for background and primary elements (harmonious, less violet-centric)
@@ -195,6 +201,14 @@
         const BUTTON_INACTIVE_TEXT = '#407F9F'; // Matching highlight text for inactive buttons
         const BUTTON_HOVER_BG = '#B0E0E6'; // Lighter Blue for button hover
 
+        // Single monochromatic grey shade for professional background tags
+        const PROFESSIONAL_BG_TAG_COLOR = '#E0E0E0'; // Lighter Grey
+        const PROFESSIONAL_BG_TAG_TEXT_COLOR = '#4A4A4A'; // Dark Grey
+        
+        // Colors for Mean, Median, Mode bar chart
+        const MEAN_MEDIAN_MODE_COLORS = ['#4A90E2', '#B8C3D0', '#6E7C8B'];
+
+
         let currentChartInstance = null; // To store the Chart.js instance for destruction
 
         function renderDashboard() {
@@ -205,7 +219,7 @@
             const header = document.createElement('header');
             header.className = 'text-center mb-4 bg-white p-4 rounded-xl shadow-lg flex-shrink-0';
             header.innerHTML = `
-                <img src="vlmp_logo.png" alt="VLMP Logo" class="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" />
+                <img src="icon/vlmp_logo.png" alt="VLMP Logo" class="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" />
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[${PRIMARY_TEXT}] mb-1">
                     PGPEx-VLM Batch Profile
                 </h1>
@@ -221,83 +235,115 @@
             `;
             root.appendChild(header);
 
+            // Two-column layout for Program Highlights and Past Records
+            const highlightsContainer = document.createElement('section');
+            highlightsContainer.className = 'grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 flex-grow';
+
             // Program Highlights Section
-            const programHighlightsSection = document.createElement('section');
-            programHighlightsSection.className = 'bg-white p-4 rounded-xl shadow-md mb-4 flex-shrink-0';
+            const programHighlightsSection = document.createElement('div');
+            programHighlightsSection.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col';
             let highlightsListHtml = batchData.programHighlightsContent.map(item => `
                 <li class="flex items-start mb-2">
-                    <svg class="w-5 h-5 text-[${HIGHLIGHT_TEXT}] mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <img src="icon/people.png" alt="Highlight Icon" class="w-5 h-5 mr-2 flex-shrink-0 text-opacity-80" />
                     <p class="text-gray-700 text-sm sm:text-base">${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
                 </li>
             `).join('');
             programHighlightsSection.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <img src="icon/people.png" alt="Program Highlights Icon" class="w-6 h-6 mr-2 text-opacity-80" />
                     Program Highlights
                 </h3>
                 <ul class="list-none p-0 m-0 text-left max-w-2xl mx-auto">
                     ${highlightsListHtml}
                 </ul>
             `;
-            root.appendChild(programHighlightsSection);
+            highlightsContainer.appendChild(programHighlightsSection);
+
+            // Past Records Section
+            const pastRecordsSection = document.createElement('div');
+            pastRecordsSection.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col';
+            let pastRecordsButtonsHtml = Object.keys(batchData.pastRecords).reverse().map((year, index) => `
+                <button id="past-records-btn-${year}"
+                    class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
+                           ${index === 0 ? `bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md` : `bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white`}">
+                    ${year}
+                </button>
+            `).join('');
+            pastRecordsSection.innerHTML = `
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
+                    <img src="icon/people.png" alt="Past Records Icon" class="w-6 h-6 mr-2" />
+                    Past Records
+                </h3>
+                <div id="past-records-buttons" class="flex justify-center space-x-4 mb-4">
+                    ${pastRecordsButtonsHtml}
+                </div>
+                <div class="h-48"> <!-- Added a fixed height container for the chart -->
+                    <canvas id="pastRecordsChartCanvas" class="chart-canvas active h-full w-full"></canvas>
+                </div>
+                <p class="text-center text-gray-600 text-xs mt-auto">
+                    *All figures are in lakhs per annum.
+                </p>
+            `;
+            highlightsContainer.appendChild(pastRecordsSection);
+
+            root.appendChild(highlightsContainer);
+
 
             // Key Highlights Section
             const highlights = document.createElement('section');
-            highlights.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-4 flex-shrink-0'; // Adjusted grid for 6 items
+            highlights.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4 flex-shrink-0';
             highlights.innerHTML = `
-                <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18H4v-1a4 4 0 014-4h4a4 4 0 014 4v1z"></path></svg>
-                    <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.batchSize}</p>
+                <div class="bg-white p-3 rounded-xl shadow-2xl flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105 border border-gray-100">
+                    <img src="icon/people.png" alt="Batch Size Icon" class="w-8 h-8 mb-1" />
+                    <a href="table.html" target="_blank" class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}] hover:underline">${batchData.batchSize}</a>
                     <p class="text-sm text-gray-600 mt-1">Batch Size</p>
                 </div>
-                <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-                    <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">69%</p>
-                    <p class="text-sm text-gray-600 mt-1">Sample</p>
-                </div>
-                <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                <div class="bg-white p-3 rounded-xl shadow-2xl flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105 border border-gray-100">
+                    <img src="icon/calendar.png" alt="Average Age Icon" class="w-8 h-8 mb-1" />
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.averageAge}</p>
                     <p class="text-sm text-gray-600 mt-1">Avg. Age</p>
                 </div>
-                <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="bg-white p-3 rounded-xl shadow-2xl flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105 border border-gray-100">
+                    <img src="icon/experience.png" alt="Work Exp Icon" class="w-8 h-8 mb-1" />
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.averageWorkExperience}</p>
                     <p class="text-sm text-gray-600 mt-1">Avg. Work Exp. (Yrs)</p>
                 </div>
-                <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 1.586l-4 4V14a2 2 0 002 2h7a2 2 0 002-2V7.586l-4-4zM10 16V4.586l-2-2V4a2 2 0 00-2 2v7a2 2 0 002 2h7l-2-2h-3z" clip-rule="evenodd"></path></svg>
+                <div class="bg-white p-3 rounded-xl shadow-2xl flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105 border border-gray-100">
+                    <img src="icon/globe.png" alt="Global Exposure Icon" class="w-8 h-8 mb-1" />
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.globalExposure}%</p>
                     <p class="text-sm text-gray-600 mt-1">Global Exposure</p>
                 </div>
-                <div class="bg-white p-3 rounded-xl shadow-md flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105">
-                    <svg class="w-8 h-8 text-[${HIGHLIGHT_TEXT}] mb-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.394 2.08a1 1 0 00-.788 0L.245 9.179A1 1 0 001 10.957V18a2 2 0 002 2h14a2 2 0 002-2v-7.043a1 1 0 00.755-1.778L10.394 2.08zM11 14a1 1 0 10-2 0v3a1 1 0 102 0v-3z"></path></svg>
+                <div class="bg-white p-3 rounded-xl shadow-2xl flex flex-col items-center justify-center text-center transform transition-transform duration-200 hover:scale-105 border border-gray-100">
+                    <img src="icon/building.png" alt="NIT, IIT & PSU Icon" class="w-8 h-8 mb-1" />
                     <p class="text-3xl font-bold text-[${HIGHLIGHT_TEXT}]">${batchData.nitIitPsuPercentage}%</p>
                     <p class="text-sm text-gray-600 mt-1">From NIT, IIT & PSU</p>
                 </div>
             `;
             root.appendChild(highlights);
 
-            // Charts Section with Tabs
-            const chartsSection = document.createElement('section');
-            chartsSection.className = 'flex-grow min-h-0 flex flex-col';
+            // Container for Charts and Professional Background (Side-by-Side)
+            const chartsAndProfessionalBgContainer = document.createElement('section');
+            chartsAndProfessionalBgContainer.className = 'grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 flex-grow'; // Use grid for side-by-side
+
+            // Charts Section
+            const chartsSection = document.createElement('div'); // Changed to div to be part of the grid
+            chartsSection.className = 'bg-white p-4 rounded-xl shadow-2xl flex flex-col border border-gray-100'; /* Added shadow-2xl and border */
             chartsSection.innerHTML = `
-                <div class="bg-white p-4 rounded-xl shadow-md mb-4 flex-grow flex flex-col">
-                    <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                        <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path></svg>
-                        Batch Analytics
-                    </h3>
-                    <div id="chart-tabs" class="flex flex-wrap justify-center gap-2 mb-4 flex-shrink-0">
-                        <button id="tab-workExperience" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md">
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
+                    <img src="icon/analytics.png" alt="Batch Analytics Icon" class="w-6 h-6 mr-2" />
+                    Batch Analytics
+                </h3>
+                <div id="chart-tabs" class="flex flex-wrap justify-center gap-2 mb-4 flex-shrink-0">
+                        <button id="tab-workExperience" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md hover:bg-[${BUTTON_HOVER_BG}] hover:text-gray-800">
                             Work Exp.
                         </button>
-                        <button id="tab-industry" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}]">
+                        <button id="tab-industry" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
                             Industry
                         </button>
-                        <button id="tab-functional" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}]">
+                        <button id="tab-functional" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
                             Functional
                         </button>
-                        <button id="tab-composition" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}]">
+                        <button id="tab-composition" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
                             Composition
                         </button>
                     </div>
@@ -306,31 +352,34 @@
                     </div>
                 </div>
             `;
-            root.appendChild(chartsSection);
+            chartsAndProfessionalBgContainer.appendChild(chartsSection); // Append to new container
 
-            // Professional Background Section
-            const professionalBackground = document.createElement('section');
-            professionalBackground.className = 'bg-white p-4 rounded-xl shadow-md mb-4 flex-shrink-0';
-            let companyLinksHtml = batchData.professionalBackgroundCompanies.map(company => `
+            // Professional Background Section (Compact Wrapping List - Monochromatic)
+            const professionalBackground = document.createElement('div'); // Changed to div to be part of the grid
+            professionalBackground.className = 'bg-white p-4 rounded-xl shadow-2xl flex-shrink-0 border border-gray-100'; /* Added shadow-2xl and border */
+            let companyNamesHtml = batchData.professionalBackgroundCompanies.map(company => `
                 <a href="${company.url}" target="_blank" rel="noopener noreferrer"
-                   class="bg-[#E0F2F7] text-[#4682B4] px-3 py-1 rounded-full text-xs font-medium shadow-sm hover:bg-[#B0E0E6] hover:text-[#36648B] transition-colors duration-200">
+                   class="inline-block px-3 py-1 m-1 rounded-md text-xs font-semibold uppercase shadow-sm
+                          bg-[${PROFESSIONAL_BG_TAG_COLOR}] text-[${PROFESSIONAL_BG_TAG_TEXT_COLOR}] transition-all duration-200 hover:scale-105 hover:shadow-md">
                     ${company.name}
                 </a>
             `).join('');
             professionalBackground.innerHTML = `
-                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
                     Professional Background
                 </h3>
-                <div class="flex flex-wrap justify-center gap-2 max-h-24 overflow-y-auto custom-scrollbar">
-                    ${companyLinksHtml}
+                <div class="flex flex-wrap justify-center items-center max-h-60 overflow-y-auto custom-scrollbar"> <!-- Increased max-height for more visibility -->
+                    ${companyNamesHtml}
                 </div>
             `;
-            root.appendChild(professionalBackground);
+            chartsAndProfessionalBgContainer.appendChild(professionalBackground); // Append to new container
+
+            root.appendChild(chartsAndProfessionalBgContainer); // Append the new container to root
+
 
             // Past Recruiters Section
             const pastRecruitersSection = document.createElement('section');
-            pastRecruitersSection.className = 'bg-white p-4 rounded-xl shadow-md mb-4 flex-shrink-0';
+            pastRecruitersSection.className = 'bg-white p-4 rounded-xl shadow-2xl mb-4 flex-shrink-0 border border-gray-100'; /* Added shadow-2xl and border */
             let recruiterLogosHtml = [...batchData.pastRecruiters, ...batchData.pastRecruiters].map(recruiter => `
                 <a href="${recruiter.url}" target="_blank" rel="noopener noreferrer" class="logo-scroll-item flex-shrink-0 flex items-center justify-center p-2">
                     <img src="${recruiter.logo}" alt="${recruiter.name} Logo" class="h-16 object-contain"
@@ -339,7 +388,7 @@
             `).join('');
             pastRecruitersSection.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.586l-2.707 2.707A3 3 0 0115 16.586V18a2 2 0 01-2 2H7a2 2 0 01-2-2v-1.414A3 3 0 014.293 12.293L2 9.586V8a2 2 0 012-2h2zm2-3a1 1 0 00-1 1v1h4V4a1 1 0 00-1-1H8zm11 9.586l-2.293 2.293A3 3 0 0112.414 16H13a1 1 0 001-1v-4.586zM5 12.414A3 3 0 014.293 11.707L2 9.586V15a1 1 0 001 1h.586l.293-.293A3 3 0 015 12.414z" clip-rule="evenodd"></path></svg>
+                    <img src="icon/people.png" alt="Past Recruiters Icon" class="w-6 h-6 mr-2" />
                     Past Recruiters
                 </h3>
                 <div class="flex overflow-x-hidden whitespace-nowrap py-2" style="width: 100%;">
@@ -353,7 +402,7 @@
 
             // Supporting Partners Section
             const partnersSection = document.createElement('section');
-            partnersSection.className = 'bg-white p-4 rounded-xl shadow-md flex-shrink-0';
+            partnersSection.className = 'bg-white p-4 rounded-xl shadow-2xl flex-shrink-0 border border-gray-100'; /* Added shadow-2xl and border */
             let partnerLogosHtml = batchData.supportingPartners.map(partner => `
                 <a href="${partner.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
                     <img src="${partner.logo}" alt="${partner.name} Logo" class="h-12 object-contain rounded-md"
@@ -362,7 +411,7 @@
             `).join('');
             partnersSection.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <svg class="w-6 h-6 text-[${PRIMARY_TEXT}] mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                    <img src="icon/building.png" alt="Partners Icon" class="w-6 h-6 mr-2" />
                     Supporting & Consulting Partners
                 </h3>
                 <div class="flex flex-wrap justify-center items-center gap-4">
@@ -373,6 +422,15 @@
                 </p>
             `;
             root.appendChild(partnersSection);
+
+            // Copyright Footer
+            const footer = document.createElement('footer');
+            footer.className = 'text-center text-gray-500 text-xs mt-4 flex-shrink-0';
+            footer.innerHTML = `
+                &copy; Designed and developed by CDPO, IIM Calcutta
+            `;
+            root.appendChild(footer);
+
 
             // Chart rendering logic
             const chartCanvas = document.getElementById('chartCanvas');
@@ -389,7 +447,7 @@
                     case 'workExperience':
                         data = batchData.workExperienceDistribution;
                         title = 'Work Experience Distribution';
-                        chartTypeJs = 'pie'; // Retained as Pie Chart
+                        chartTypeJs = 'polarArea'; // Changed to Polar Area Chart
                         break;
                     case 'industry':
                         data = batchData.industryDistribution;
@@ -399,12 +457,12 @@
                     case 'functional':
                         data = batchData.functionalExposure;
                         title = 'Functional Exposure';
-                        chartTypeJs = 'doughnut'; // Changed to Doughnut Chart
+                        chartTypeJs = 'radar'; // Changed to Radar Chart
                         break;
                     case 'composition':
                         data = batchData.batchComposition;
                         title = 'Batch Composition';
-                        chartTypeJs = 'doughnut'; // Changed to Doughnut Chart
+                        chartTypeJs = 'doughnut'; // Retained as Doughnut Chart
                         break;
                 }
 
@@ -457,6 +515,7 @@
                     }
                 };
 
+                // Specific scales for different chart types
                 if (chartTypeJs === 'bar') {
                     chartOptions.scales = {
                         x: {
@@ -475,6 +534,42 @@
                             grid: { color: '#E5E7EB' } // light gray grid lines
                         }
                     };
+                } else if (chartTypeJs === 'radar') {
+                    chartOptions.scales = {
+                        r: { // Radial axis for radar chart
+                            angleLines: {
+                                color: '#E5E7EB' // Light gray angle lines
+                            },
+                            grid: {
+                                color: '#E5E7EB' // Light gray grid lines
+                            },
+                            pointLabels: {
+                                color: '#4B5563', // gray-700
+                                font: { family: 'Inter' }
+                            },
+                            ticks: {
+                                display: false // Hide numerical ticks on radar chart
+                            }
+                        }
+                    };
+                    chartData.datasets[0].borderColor = CHART_COLORS[0]; // Line color for radar
+                    chartData.datasets[0].borderWidth = 2;
+                    chartData.datasets[0].fill = true;
+                    chartData.datasets[0].backgroundColor = CHART_COLORS[0] + '40'; // Add transparency
+                } else if (chartTypeJs === 'polarArea') {
+                    chartOptions.scales = {
+                        r: { // Radial axis for polar area chart
+                            angleLines: {
+                                display: false // Hide angle lines
+                            },
+                            grid: {
+                                color: '#E5E7EB' // Light gray grid lines
+                            },
+                            ticks: {
+                                display: false // Hide numerical ticks on polar area chart
+                            }
+                        }
+                    };
                 }
 
 
@@ -484,28 +579,104 @@
                     options: chartOptions
                 });
             }
+            
+            function renderPastRecords(year) {
+                const data = batchData.pastRecords[year];
+                const displayDiv = document.getElementById('past-records-display');
+                if (data) {
+                    const chartCanvas = document.getElementById('pastRecordsChartCanvas');
+                    if (window.pastRecordsChart) {
+                        window.pastRecordsChart.destroy();
+                    }
 
-            // Event listeners for tabs
-            chartTabs.querySelectorAll('button').forEach(button => {
-                button.addEventListener('click', () => {
+                    const chartData = {
+                        labels: ['Mean', 'Median', 'Mode'],
+                        datasets: [{
+                            data: [data.mean, data.median, data.mode],
+                            backgroundColor: ['#4A90E2', '#B8C3D0', '#6E7C8B'],
+                        }]
+                    };
+
+                    const chartOptions = {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false,
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.parsed.x} lac p.a.`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: {
+                                    color: '#4B5563',
+                                    font: { family: 'Inter' },
+                                    callback: function(value) { return value + ' lac p.a.'; }
+                                }
+                            },
+                            y: {
+                                grid: { display: false },
+                                ticks: {
+                                    color: '#4B5563',
+                                    font: { family: 'Inter' }
+                                }
+                            }
+                        }
+                    };
+
+                    window.pastRecordsChart = new Chart(chartCanvas, {
+                        type: 'bar',
+                        data: chartData,
+                        options: chartOptions
+                    });
+                }
+            }
+
+
+            // Event listeners for tabs and past records buttons
+            document.getElementById('dashboard-root').addEventListener('click', (event) => {
+                const target = event.target;
+                if (target.closest('#chart-tabs button')) {
+                    const button = target.closest('#chart-tabs button');
                     const newActiveChart = button.id.replace('tab-', '');
-
-                    // Update active button styles
-                    chartTabs.querySelectorAll('button').forEach(btn => {
+                    
+                    document.querySelectorAll('#chart-tabs button').forEach(btn => {
                         if (btn.id === `tab-${newActiveChart}`) {
-                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md`;
+                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md hover:bg-[${BUTTON_HOVER_BG}] hover:text-gray-800`;
                         } else {
-                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}]`;
+                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white`;
                         }
                     });
 
-                    activeChartId = newActiveChart;
-                    createChart(activeChartId);
-                });
+                    createChart(newActiveChart);
+                } else if (target.closest('#past-records-buttons button')) {
+                    const button = target.closest('#past-records-buttons button');
+                    const year = button.id.replace('past-records-btn-', '');
+                    
+                    document.querySelectorAll('#past-records-buttons button').forEach(btn => {
+                        if (btn.id === `past-records-btn-${year}`) {
+                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md`;
+                        } else {
+                            btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white`;
+                        }
+                    });
+
+                    renderPastRecords(year);
+                }
             });
 
+
             // Initial chart render
-            createChart(activeChartId);
+            createChart('workExperience');
+            renderPastRecords('2025');
         }
 
         // Run the dashboard rendering when the DOM is fully loaded
