@@ -154,12 +154,14 @@
             ],
 
             supportingPartners: [
-                { name: 'IIM Calcutta', logo: 'iimc_logo.png', url: 'https://www.iimcal.ac.in/' },
-                { name: 'IIT Kanpur', logo: 'iit_kanpur_logo.png', url: 'https://www.iitk.ac.in/' },
-                { name: 'IIT Madras', logo: 'iit_madras_logo.png', url: 'https://www.iitm.ac.in/' },
-                { name: 'CII', logo: 'cii_logo.jpg', url: 'https://www.cii.in/' },
-                { name: 'JICA', logo: 'jica_logo.png', url: 'https://www.jica.go.jp/english/overseas/india/index.html' },
-                { name: 'DPIIT', logo: 'dpiit_logo.jpeg', url: 'https://www.dpiit.gov.in/' },
+                // The URLs for these logos have been replaced with local paths as per your request.
+                // Please ensure you have these images in a folder named 'logo' at the root.
+                { name: 'IIM Calcutta', logo: 'logo/iim_calcutta_logo.png', url: 'https://www.iimcal.ac.in/' },
+                { name: 'IIT Kanpur', logo: 'logo/iit_kanpur_logo.png', url: 'https://www.iitk.ac.in/' },
+                { name: 'IIT Madras', logo: 'logo/iit_madras_logo.png', url: 'https://www.iitm.ac.in/' },
+                { name: 'CII', logo: 'logo/cii_logo.png', url: 'https://www.cii.in/' },
+                { name: 'JICA', logo: 'logo/jica_logo.png', url: 'https://www.jica.go.jp/english/overseas/india/index.html' },
+                { name: 'DPIIT', logo: 'logo/dpiit_logo.png', url: 'https://www.dpiit.gov.in/' },
             ],
             pastRecruiters: [
                 { name: 'TVS', logo: 'https://static.vecteezy.com/system/resources/previews/020/336/393/original/tvs-logo-tvs-icon-transparent-png-free-vector.jpg', url: 'https://www.tvsmotor.com/' },
@@ -217,14 +219,15 @@
             const header = document.createElement('header');
             header.className = 'text-center mb-4 bg-white p-4 rounded-xl shadow-lg flex-shrink-0';
             header.innerHTML = `
-                <img src="vlmp_logo.png" alt="VLMP Logo" class="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" />
+                <!-- Updated logo path from 'icon/vlmp_logo.png' to 'logo/vlmp_logo.png' as requested -->
+                <img src="logo/vlmp_logo.png" alt="VLMP Logo" class="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" />
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[${PRIMARY_TEXT}] mb-1">
                     PGPEx-VLM Batch Profile
                 </h1>
                 <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-700 mb-1">
                     ${batchData.programName}
                 </h2>
-                <p class="text-sm sm:text-base text-gray-600 italic">
+                <p class="text-sm sm:text-base text-gray-600 ">
                     ${batchData.batchInfo}
                 </p>
                 <p class="text-base sm:text-lg font-medium text-[${PRIMARY_TEXT}] mt-2 max-w-3xl mx-auto">
@@ -241,14 +244,13 @@
             const programHighlightsSection = document.createElement('div');
             programHighlightsSection.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col';
             let highlightsListHtml = batchData.programHighlightsContent.map(item => `
-                <li class="flex items-start mb-2">
-                    <img src="icon/people.png" alt="Highlight Icon" class="w-5 h-5 mr-2 flex-shrink-0 text-opacity-80" />
+                <li class="mb-2">
+                    <!-- Removed icon from here -->
                     <p class="text-gray-700 text-sm sm:text-base">${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
                 </li>
             `).join('');
             programHighlightsSection.innerHTML = `
-                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <img src="icon/people.png" alt="Program Highlights Icon" class="w-6 h-6 mr-2 text-opacity-80" />
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
                     Program Highlights
                 </h3>
                 <ul class="list-none p-0 m-0 text-left max-w-2xl mx-auto">
@@ -268,8 +270,7 @@
                 </button>
             `).join('');
             pastRecordsSection.innerHTML = `
-                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <img src="icon/people.png" alt="Past Records Icon" class="w-6 h-6 mr-2" />
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
                     Past Records
                 </h3>
                 <div id="past-records-buttons" class="flex justify-center space-x-4 mb-4">
@@ -327,8 +328,7 @@
             const chartsSection = document.createElement('div'); // Changed to div to be part of the grid
             chartsSection.className = 'bg-white p-4 rounded-xl shadow-2xl flex flex-col border border-gray-100'; /* Added shadow-2xl and border */
             chartsSection.innerHTML = `
-                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <img src="icon/analytics.png" alt="Batch Analytics Icon" class="w-6 h-6 mr-2" />
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
                     Batch Analytics
                 </h3>
                 <div id="chart-tabs" class="flex flex-wrap justify-center gap-2 mb-4 flex-shrink-0">
@@ -345,7 +345,8 @@
                         Composition
                     </button>
                 </div>
-                <div id="chart-container" class="flex-grow flex items-center justify-center">
+                <!-- Added a fixed height container for the chart to ensure it renders properly -->
+                <div id="chart-container" class="h-96 flex-grow flex items-center justify-center">
                     <canvas id="chartCanvas" class="chart-canvas active"></canvas>
                 </div>
             </div>
@@ -385,8 +386,7 @@
                 </a>
             `).join('');
             pastRecruitersSection.innerHTML = `
-                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <img src="icon/people.png" alt="Past Recruiters Icon" class="w-6 h-6 mr-2" />
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
                     Past Recruiters
                 </h3>
                 <div class="flex overflow-x-hidden whitespace-nowrap py-2" style="width: 100%;">
@@ -408,8 +408,7 @@
                 </a>
             `).join('');
             partnersSection.innerHTML = `
-                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center flex items-center justify-center">
-                    <img src="icon/building.png" alt="Partners Icon" class="w-6 h-6 mr-2" />
+                <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
                     Supporting & Consulting Partners
                 </h3>
                 <div class="flex flex-wrap justify-center items-center gap-4">
@@ -440,35 +439,40 @@
                     currentChartInstance.destroy(); // Destroy previous chart instance
                 }
 
-                let data, title, chartTypeJs;
+                let data, title, chartTypeJs, datasetLabel;
                 switch (chartType) {
                     case 'workExperience':
                         data = batchData.workExperienceDistribution;
                         title = 'Work Experience Distribution';
-                        chartTypeJs = 'polarArea'; // Changed to Polar Area Chart
+                        chartTypeJs = 'polarArea';
+                        datasetLabel = 'Work Experience';
                         break;
                     case 'industry':
                         data = batchData.industryDistribution;
                         title = 'Industry-wise Distribution';
-                        chartTypeJs = 'bar'; // Retained as Bar Chart
+                        chartTypeJs = 'bar'; // Changed to bar chart as requested
+                        datasetLabel = 'Industry Distribution';
                         break;
                     case 'functional':
                         data = batchData.functionalExposure;
                         title = 'Functional Exposure';
-                        chartTypeJs = 'radar'; // Changed to Radar Chart
+                        chartTypeJs = 'bar';
+                        datasetLabel = 'Functional Exposure';
                         break;
                     case 'composition':
                         data = batchData.batchComposition;
                         title = 'Batch Composition';
-                        chartTypeJs = 'doughnut'; // Retained as Doughnut Chart
+                        chartTypeJs = 'doughnut';
+                        datasetLabel = 'Batch Composition';
                         break;
                 }
 
                 const chartData = {
                     labels: data.map(d => d.name),
                     datasets: [{
+                        label: datasetLabel,
                         data: data.map(d => d.value),
-                        backgroundColor: CHART_COLORS.slice(0, data.length), // Use the expanded CHART_COLORS
+                        backgroundColor: CHART_COLORS.slice(0, data.length),
                         hoverOffset: 4
                     }]
                 };
@@ -479,8 +483,11 @@
                     plugins: {
                         legend: {
                             position: 'bottom',
+                            // The legend should only be displayed for charts like polar or doughnut.
+                            // For bar charts, the labels on the axis act as the legend.
+                            display: (chartTypeJs === 'doughnut' || chartTypeJs === 'polarArea') ? true : false,
                             labels: {
-                                color: '#4B5563', // gray-700
+                                color: '#4B5563',
                                 font: {
                                     family: 'Inter',
                                     size: 12
@@ -490,18 +497,14 @@
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    let label = context.label || '';
-                                    if (label) {
-                                        label += ': ';
-                                    }
-                                    if (context.parsed !== null) {
-                                        label += context.parsed + '%';
-                                    }
-                                    return label;
+                                    // Get the label from the data point directly
+                                    let label = context.label;
+                                    let value = context.formattedValue;
+                                    return `${label}: ${value}%`;
                                 }
                             },
                             title: {
-                                display: false, // Title is handled by H3 above the canvas
+                                display: false,
                             }
                         },
                     },
@@ -512,64 +515,50 @@
                         }
                     }
                 };
-
-                // Specific scales for different chart types
+                
+                // Common scales configuration for bar charts
                 if (chartTypeJs === 'bar') {
+                    chartOptions.indexAxis = (chartType === 'functional') ? 'y' : 'x';
                     chartOptions.scales = {
                         x: {
+                            grid: { display: chartOptions.indexAxis === 'x' },
                             ticks: {
-                                color: '#4B5563', // gray-700
-                                font: { family: 'Inter' }
+                                color: '#4B5563',
+                                font: { family: 'Inter' },
+                                // Removed the callback to prevent "0%" being displayed
+                                // It now relies on the default chart.js behavior
                             },
-                            grid: { display: false }
                         },
                         y: {
+                            grid: { display: chartOptions.indexAxis === 'y' },
                             ticks: {
-                                color: '#4B5563', // gray-700
-                                font: { family: 'Inter' },
-                                callback: function(value) { return value + '%'; }
-                            },
-                            grid: { color: '#E5E7EB' } // light gray grid lines
+                                color: '#4B5563',
+                                font: { family: 'Inter' }
+                            }
                         }
                     };
                 } else if (chartTypeJs === 'radar') {
                     chartOptions.scales = {
-                        r: { // Radial axis for radar chart
-                            angleLines: {
-                                color: '#E5E7EB' // Light gray angle lines
-                            },
-                            grid: {
-                                color: '#E5E7EB' // Light gray grid lines
-                            },
-                            pointLabels: {
-                                color: '#4B5563', // gray-700
-                                font: { family: 'Inter' }
-                            },
-                            ticks: {
-                                display: false // Hide numerical ticks on radar chart
-                            }
+                        r: {
+                            angleLines: { color: '#E5E7EB' },
+                            grid: { color: '#E5E7EB' },
+                            pointLabels: { color: '#4B5563', font: { family: 'Inter' } },
+                            ticks: { display: false }
                         }
                     };
-                    chartData.datasets[0].borderColor = CHART_COLORS[0]; // Line color for radar
+                    chartData.datasets[0].borderColor = CHART_COLORS[0];
                     chartData.datasets[0].borderWidth = 2;
                     chartData.datasets[0].fill = true;
-                    chartData.datasets[0].backgroundColor = CHART_COLORS[0] + '40'; // Add transparency
+                    chartData.datasets[0].backgroundColor = CHART_COLORS[0] + '40';
                 } else if (chartTypeJs === 'polarArea') {
                     chartOptions.scales = {
-                        r: { // Radial axis for polar area chart
-                            angleLines: {
-                                display: false // Hide angle lines
-                            },
-                            grid: {
-                                color: '#E5E7EB' // Light gray grid lines
-                            },
-                            ticks: {
-                                display: false // Hide numerical ticks on polar area chart
-                            }
+                        r: {
+                            angleLines: { display: false },
+                            grid: { color: '#E5E7EB' },
+                            ticks: { display: false }
                         }
                     };
                 }
-
 
                 currentChartInstance = new Chart(chartCanvas, {
                     type: chartTypeJs,
@@ -590,6 +579,7 @@
                     const chartData = {
                         labels: ['Mean', 'Median', 'Mode'],
                         datasets: [{
+                            label: `Salary for ${year}`,
                             data: [data.mean, data.median, data.mode],
                             backgroundColor: MEAN_MEDIAN_MODE_COLORS,
                         }]
