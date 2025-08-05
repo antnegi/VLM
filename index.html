@@ -13,8 +13,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            /* Subtle gradient background for the body */
-            background: linear-gradient(to bottom right, #F8F8F8, #EFF3F6);
+            /* New subtle gradient background for the body */
+            background: linear-gradient(to bottom right, #EBF3F8, #F5FAFF);
         }
         /* Custom scrollbar for professional background section */
         .custom-scrollbar::-webkit-scrollbar {
@@ -25,11 +25,11 @@
             border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #A7D9B4; /* Soft Green */
+            background: #5A99B9; /* Medium Blue */
             border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #7BC88D; /* Darker Soft Green */
+            background: #407F9F; /* Darker Medium Blue */
         }
         /* Hide all chart canvases by default */
         .chart-canvas {
@@ -43,7 +43,6 @@
         .logo-scroll-item {
             flex-shrink: 0;
         }
-
         /* Keyframes for horizontal scrolling animation */
         @keyframes scroll-left-to-right {
             0% {
@@ -53,7 +52,6 @@
                 transform: translateX(-50%); /* Moves half the width of duplicated content */
             }
         }
-
         /* Apply animation to the scrolling container */
         .past-recruiters-scroll-container {
             animation: scroll-left-to-right 30s linear infinite; /* Adjust time for speed */
@@ -156,12 +154,12 @@
             ],
 
             supportingPartners: [
-                { name: 'IIM Calcutta', logo: 'https://www.iimcal.ac.in/themes/custom/iimcal/logo.png', url: 'https://www.iimcal.ac.in/' },
-                { name: 'IIT Kanpur', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f6/Indian_Institute_of_Technology%2C_Kanpur_Logo.svg/1200px-Indian_Institute_of_Technology%2C_Kanpur_Logo.svg.png', url: 'https://www.iitk.ac.in/' },
-                { name: 'IIT Madras', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/IIT_Madras_Logo.svg/1200px-IIT_Madras_Logo.svg.png', url: 'https://www.iitm.ac.in/' },
-                { name: 'CII', logo: 'https://www.cii.in/assets/images/logo.png', url: 'https://www.cii.in/' },
-                { name: 'JICA', logo: 'https://www.jica.go.jp/english/img/logo.gif', url: 'https://www.jica.go.jp/english/overseas/india/index.html' },
-                { name: 'DPIIT', logo: 'https://www.dpiit.gov.in/sites/all/themes/dpiit/logo.png', url: 'https://www.dpiit.gov.in/' },
+                { name: 'IIM Calcutta', logo: 'iimc_logo.png', url: 'https://www.iimcal.ac.in/' },
+                { name: 'IIT Kanpur', logo: 'iit_kanpur_logo.png', url: 'https://www.iitk.ac.in/' },
+                { name: 'IIT Madras', logo: 'iit_madras_logo.png', url: 'https://www.iitm.ac.in/' },
+                { name: 'CII', logo: 'cii_logo.jpg', url: 'https://www.cii.in/' },
+                { name: 'JICA', logo: 'jica_logo.png', url: 'https://www.jica.go.jp/english/overseas/india/index.html' },
+                { name: 'DPIIT', logo: 'dpiit_logo.jpeg', url: 'https://www.dpiit.gov.in/' },
             ],
             pastRecruiters: [
                 { name: 'TVS', logo: 'https://static.vecteezy.com/system/resources/previews/020/336/393/original/tvs-logo-tvs-icon-transparent-png-free-vector.jpg', url: 'https://www.tvsmotor.com/' },
@@ -180,33 +178,33 @@
             ]
         };
 
-        // Professional and eye-catching color palette for charts
+        // New professional and eye-catching color palette for charts (Blue/Teal/Green)
         const CHART_COLORS = [
-            '#4E342E', // Brown 800
-            '#5D4037', // Brown 700
-            '#6D4C41', // Brown 600
-            '#795548', // Brown 500
-            '#8D6E63', // Brown 400
-            '#A1887F', // Brown 300
-            '#BCAAA4', // Brown 200
-            '#D7CCC8'  // Brown 100
+            '#00798C', // Dark Teal
+            '#00B3A6', // Bright Teal
+            '#04B8C1', // Light Teal
+            '#2F4858', // Dark Blue
+            '#61B0B7', // Aqua
+            '#0A956E', // Green
+            '#3A93A4', // Dusty Blue
+            '#5DA4B2', // Light Blue
         ];
 
-        // Main theme colors for background and primary elements (harmonious, less violet-centric)
-        const PRIMARY_BG = '#F8F8F8'; // Very light grey
-        const PRIMARY_TEXT = '#2C5F7F'; // Muted Teal/Blue for main headings/accents
-        const HIGHLIGHT_TEXT = '#407F9F'; // Slightly brighter Teal/Blue for highlight numbers
-        const BUTTON_ACTIVE_BG = '#5A99B9'; // Medium Blue for active buttons
+        // New main theme colors for a cool, professional aesthetic
+        const PRIMARY_BG = '#E8F0F5'; // Light cool gray
+        const PRIMARY_TEXT = '#2F4858'; // Deep professional blue for main headings
+        const HIGHLIGHT_TEXT = '#00798C'; // Bright teal for highlight numbers
+        const BUTTON_ACTIVE_BG = '#00798C'; // Dark Teal for active buttons
         const BUTTON_INACTIVE_BG = '#E0F2F7'; // Very light blue for inactive buttons
-        const BUTTON_INACTIVE_TEXT = '#407F9F'; // Matching highlight text for inactive buttons
+        const BUTTON_INACTIVE_TEXT = '#2F4858'; // Matching main text for inactive buttons
         const BUTTON_HOVER_BG = '#B0E0E6'; // Lighter Blue for button hover
 
         // Single monochromatic grey shade for professional background tags
-        const PROFESSIONAL_BG_TAG_COLOR = '#E0E0E0'; // Lighter Grey
-        const PROFESSIONAL_BG_TAG_TEXT_COLOR = '#4A4A4A'; // Dark Grey
+        const PROFESSIONAL_BG_TAG_COLOR = '#CFD8DC'; // Cooler light gray
+        const PROFESSIONAL_BG_TAG_TEXT_COLOR = '#37474F'; // Dark gray
         
         // Colors for Mean, Median, Mode bar chart
-        const MEAN_MEDIAN_MODE_COLORS = ['#4A90E2', '#B8C3D0', '#6E7C8B'];
+        const MEAN_MEDIAN_MODE_COLORS = ['#2F4858', '#61B0B7', '#00798C'];
 
 
         let currentChartInstance = null; // To store the Chart.js instance for destruction
@@ -219,7 +217,7 @@
             const header = document.createElement('header');
             header.className = 'text-center mb-4 bg-white p-4 rounded-xl shadow-lg flex-shrink-0';
             header.innerHTML = `
-                <img src="icon/vlmp_logo.png" alt="VLMP Logo" class="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" />
+                <img src="vlmp_logo.png" alt="VLMP Logo" class="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" />
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[${PRIMARY_TEXT}] mb-1">
                     PGPEx-VLM Batch Profile
                 </h1>
@@ -334,23 +332,23 @@
                     Batch Analytics
                 </h3>
                 <div id="chart-tabs" class="flex flex-wrap justify-center gap-2 mb-4 flex-shrink-0">
-                        <button id="tab-workExperience" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md hover:bg-[${BUTTON_HOVER_BG}] hover:text-gray-800">
-                            Work Exp.
-                        </button>
-                        <button id="tab-industry" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
-                            Industry
-                        </button>
-                        <button id="tab-functional" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
-                            Functional
-                        </button>
-                        <button id="tab-composition" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
-                            Composition
-                        </button>
-                    </div>
-                    <div id="chart-container" class="flex-grow flex items-center justify-center">
-                        <canvas id="chartCanvas" class="chart-canvas active"></canvas>
-                    </div>
+                    <button id="tab-workExperience" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md hover:bg-[${BUTTON_HOVER_BG}] hover:text-gray-800">
+                        Work Exp.
+                    </button>
+                    <button id="tab-industry" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
+                        Industry
+                    </button>
+                    <button id="tab-functional" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
+                        Functional
+                    </button>
+                    <button id="tab-composition" class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white">
+                        Composition
+                    </button>
                 </div>
+                <div id="chart-container" class="flex-grow flex items-center justify-center">
+                    <canvas id="chartCanvas" class="chart-canvas active"></canvas>
+                </div>
+            </div>
             `;
             chartsAndProfessionalBgContainer.appendChild(chartsSection); // Append to new container
 
@@ -359,8 +357,8 @@
             professionalBackground.className = 'bg-white p-4 rounded-xl shadow-2xl flex-shrink-0 border border-gray-100'; /* Added shadow-2xl and border */
             let companyNamesHtml = batchData.professionalBackgroundCompanies.map(company => `
                 <a href="${company.url}" target="_blank" rel="noopener noreferrer"
-                   class="inline-block px-3 py-1 m-1 rounded-md text-xs font-semibold uppercase shadow-sm
-                          bg-[${PROFESSIONAL_BG_TAG_COLOR}] text-[${PROFESSIONAL_BG_TAG_TEXT_COLOR}] transition-all duration-200 hover:scale-105 hover:shadow-md">
+                    class="inline-block px-3 py-1 m-1 rounded-md text-xs font-semibold uppercase shadow-sm
+                            bg-[${PROFESSIONAL_BG_TAG_COLOR}] text-[${PROFESSIONAL_BG_TAG_TEXT_COLOR}] transition-all duration-200 hover:scale-105 hover:shadow-md">
                     ${company.name}
                 </a>
             `).join('');
@@ -383,7 +381,7 @@
             let recruiterLogosHtml = [...batchData.pastRecruiters, ...batchData.pastRecruiters].map(recruiter => `
                 <a href="${recruiter.url}" target="_blank" rel="noopener noreferrer" class="logo-scroll-item flex-shrink-0 flex items-center justify-center p-2">
                     <img src="${recruiter.logo}" alt="${recruiter.name} Logo" class="h-16 object-contain"
-                         onerror="this.onerror=null;this.src='https://placehold.co/100x60/F0F8FF/000080?text=${recruiter.name}';">
+                            onerror="this.onerror=null;this.src='https://placehold.co/100x60/F0F8FF/000080?text=${recruiter.name}';">
                 </a>
             `).join('');
             pastRecruitersSection.innerHTML = `
@@ -406,7 +404,7 @@
             let partnerLogosHtml = batchData.supportingPartners.map(partner => `
                 <a href="${partner.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
                     <img src="${partner.logo}" alt="${partner.name} Logo" class="h-12 object-contain rounded-md"
-                         onerror="this.onerror=null;this.src='https://placehold.co/100x50/F0F8FF/000080?text=Logo+Missing';">
+                            onerror="this.onerror=null;this.src='https://placehold.co/100x50/F0F8FF/000080?text=Logo+Missing';">
                 </a>
             `).join('');
             partnersSection.innerHTML = `
@@ -593,7 +591,7 @@
                         labels: ['Mean', 'Median', 'Mode'],
                         datasets: [{
                             data: [data.mean, data.median, data.mode],
-                            backgroundColor: ['#4A90E2', '#B8C3D0', '#6E7C8B'],
+                            backgroundColor: MEAN_MEDIAN_MODE_COLORS,
                         }]
                     };
 
