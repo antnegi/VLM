@@ -43,8 +43,8 @@
         .logo-scroll-item {
             flex-shrink: 0;
         }
-        /* Keyframes for horizontal scrolling animation */
-        @keyframes scroll-left-to-right {
+        /* Keyframes for horizontal scrolling animation for Past Recruiters */
+        @keyframes scroll-recruiters {
             0% {
                 transform: translateX(0%);
             }
@@ -52,9 +52,23 @@
                 transform: translateX(-50%); /* Moves half the width of duplicated content */
             }
         }
-        /* Apply animation to the scrolling container */
+        /* Apply animation to the Past Recruiters scrolling container */
         .past-recruiters-scroll-container {
-            animation: scroll-left-to-right 30s linear infinite; /* Adjust time for speed */
+            animation: scroll-recruiters 30s linear infinite; /* Adjust time for speed */
+        }
+
+        /* Keyframes for horizontal scrolling animation for Professional Background */
+        @keyframes scroll-professional-bg {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%); /* Moves half the width of duplicated content */
+            }
+        }
+        /* Apply animation to the Professional Background scrolling container */
+        .professional-carousel-container {
+            animation: scroll-professional-bg 40s linear infinite; /* Adjust time for speed */
         }
     </style>
 </head>
@@ -109,54 +123,51 @@
             ],
             
             pastRecords: {
-                '2025': { mean: 22, median: 24, mode: 19 },
-                '2024': { mean: 25, median: 26, mode: 19 },
-                '2023': { mean: 21, median: 21, mode: 19 }
+                '2025': { mean: 22.91, median: 19.3, highest: 52 },
+                '2024': { mean: 26.4, median: 24, highest: 52 },
+                '2023': { mean: 22.13, median: 21.8, highest: 36.32 }
             },
 
             professionalBackgroundCompanies: [
-                // Corrected the syntax by adding commas between each object in the array
                 { name: 'MARUTI SUZUKI', url: 'https://www.marutisuzuki.com/', logo: 'https://1000logos.net/wp-content/uploads/2022/08/Maruti-Suzuki-Logo-2000.png' },
-                { name: 'HERO', url: 'https://www.heromotocorp.com/',  logo: 'https://download.logo.wine/logo/Hero_MotoCorp/Hero_MotoCorp-Logo.wine.png' },
-                { name: 'VEDANTA', url: 'https://www.vedantalimited.com/',  logo: 'https://download.logo.wine/logo/Vedanta_Resources/Vedanta_Resources-Logo.wine.png' },
+                { name: 'HERO', url: 'https://www.heromotocorp.com/',  logo: 'https://download.logo.wine/logo/Hero_MotoCorp/Hero_MotoCorp-Logo.wine.png' },
+                { name: 'VEDANTA', url: 'https://www.vedantalimited.com/',  logo: 'https://download.logo.wine/logo/Vedanta_Resources/Vedanta_Resources-Logo.wine.png' },
                 { name: 'EXXONMOBIL', url: 'https://corporate.exxonmobil.com/locations/india', logo: 'https://corporate.exxonmobil.com/-/media/global/icons/logos/exxonmobillogocolor2x.png' },
-                { name: 'LAND-ROVER', url: 'https://www.tatamotors.com/brands/land-rover/',  logo: 'https://logodownload.org/wp-content/uploads/2019/08/land-rover-logo.png' },
+                { name: 'LAND-ROVER', url: 'https://www.tatamotors.com/brands/land-rover/',  logo: 'https://logodownload.org/wp-content/uploads/2019/08/land-rover-logo.png' },
                 { name: 'EXIDE', url: 'https://www.exideindustries.com/', logo: 'https://companieslogo.com/img/orig/EXIDEIND.NS_BIG-db349985.png?t=1604067033' },
-                { name: 'JAGUAR', url: 'https://www.tatamotors.com/brands/jaguar/', logo: '' },
-                { name: 'NUVEPRO', url: 'https://nuvepro.com/', logo: '' },
-                { name: 'DELOITTE.', url: 'https://www.deloitte.com/in/en.html', logo: '' },
-                { name: 'TCS', url: 'https://www.tcs.com/in-en', logo: '' },
+                { name: 'JAGUAR', url: 'https://www.tatamotors.com/brands/jaguar/', logo: 'https://cdn.iconscout.com/icon/free/png-256/jaguar-282431.png' },
+                { name: 'NUVEPRO', url: 'https://nuvepro.com/', logo: 'https://nuvepro.com/wp-content/uploads/2023/04/Nuvepro-logo-new.png' },
+                { name: 'DELOITTE.', url: 'https://www.deloitte.com/in/en.html', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Deloitte_Logo.svg/1280px-Deloitte_Logo.svg.png' },
+                { name: 'TCS', url: 'https://www.tcs.com/in-en', logo: 'https://i.pinimg.com/originals/1f/22030f55cfce9ed3c40751e185e45a.png' },
                 { name: 'RELIANCE', url: 'https://www.ril.com/', logo: 'https://rilstaticasset.akamaized.net/sites/default/files/2022-09/reliance-industries-logo-blk.png' },
-                { name: 'HP', url: 'https://www.hp.com/in-en/home.html', logo: '' },
-                { name: 'AMAZON', url: 'https://www.amazon.in/', logo: '' },
-                { name: 'HEXAGON', url: 'https://hexagon.com/', logo: '' },
-                { name: 'AARTI', url: 'https://www.aarti-industries.com/', logo: '' },
-                { name: 'TATA STEEL', url: 'https://www.tatasteel.com/', logo: '' },
-                { name: 'VESUVIUS', url: 'https://www.vesuvius.com/', logo: '' },
-                { name: 'ADITYA BIRLA', url: 'https://www.adityabirlagroup.com/', logo: '' },
-                { name: 'PHOENIX', url: 'https://www.thephoenixmills.com/', logo: '' },
-                { name: 'TATA CONSULTING ENGINEERS LIMITED', url: 'https://www.tce.co.in/', logo: '' },
-                { name: 'MOTHERSON', url: 'https://www.motherson.com/', logo: '' },
-                { name: 'INDUSTRIES LIMITED', url: 'https://www.ril.com/', logo: '' }, // Assuming Reliance Industries Limited
-                { name: 'HINDALCO', url: 'https://www.hindalco.com/', logo: '' },
-                { name: 'THE MATH COMPANY', url: 'https://www.themathcompany.com/', logo: '' },
-                { name: 'SAINT-GOBAIN', url: 'https://www.saint-gobain.co.in/', logo: '' },
-                { name: 'COROMANDEL', url: 'https://www.coromandel.biz/', logo: '' },
-                { name: 'INDKAL', url: 'https://indkal.com/', logo: '' },
-                { name: 'KBR', url: 'https://www.kbr.com/en/what-we-do', logo: '' },
-                { name: 'TATA BLUESCOPE STEEL', url: 'https://www.tatabluescopesteel.com/',  logo: '' },
-                { name: 'HAWKINS', url: 'https://www.hawkinscookers.com/', logo: '' },
-                { name: 'BHORUKA', url: 'https://bhorukaextrusions.com/', logo: '' },
-                { name: 'A YKK AF COMPANY', url: 'https://www.ykkap.co.jp/english/', logo: ''  },
-                { name: 'GEP', url: 'https://www.gep.com/careers/join-us/campus-connect/india', logo: '' },
-                { name: 'CNH', url: 'https://www.cnhindustrial.com/en-in/', logo: '' },
-                { name: 'AG MARITIME', url: 'https://www.ag-maritime.com/company', logo: 'https://static.wixstatic.com/media/012c15_1ab8a39ae408418e940455f3d00dd1a6~mv2.jpg'  },
-                { name: 'PCBL', url: 'https://www.pcblltd.com/', logo: ''  },
+                { name: 'HP', url: 'https://www.hp.com/in-en/home.html', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_Logo_2012.svg/1200px-HP_Logo_2012.svg.png' },
+                { name: 'AMAZON', url: 'https://www.amazon.in/', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png' },
+                { name: 'HEXAGON', url: 'https://hexagon.com/', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Hexagon_AB_logo.svg/1200px-Hexagon_AB_logo.svg.png' },
+                { name: 'AARTI', url: 'https://www.aarti-industries.com/', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Aarti_Industries_Logo.png' },
+                { name: 'TATA STEEL', url: 'https://www.tatasteel.com/', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Tata_Steel_Logo.svg/2560px-Tata_Steel_Logo.svg.png' },
+                { name: 'VESUVIUS', url: 'https://www.vesuvius.com/', logo: 'https://www.vesuvius.com/content/dam/vesuvius/Vesuvius-Logo-2023.png' },
+                { name: 'ADITYA BIRLA', url: 'https://www.adityabirlagroup.com/', logo: 'https://logos.flamingtext.com/Name-Logos/Aditya-Birla-transparent_background_by_Admin.png' },
+                { name: 'PHOENIX', url: 'https://www.thephoenixmills.com/', logo: 'https://www.thephoenixmills.com/wp-content/themes/phoenix/assets/images/phoenix-mills-logo.svg' },
+                { name: 'TATA CONSULTING ENGINEERS LIMITED', url: 'https://www.tce.co.in/', logo: 'https://www.tce.co.in/images/tce-logo.png' },
+                { name: 'MOTHERSON', url: 'https://www.motherson.com/', logo: 'https://www.motherson.com/-/media/feature/logos/motherson_logo.png' },
+                { name: 'INDUSTRIES LIMITED', url: 'https://www.ril.com/', logo: 'https://rilstaticasset.akamaized.net/sites/default/files/2022-09/reliance-industries-logo-blk.png' }, // Assuming Reliance Industries Limited
+                { name: 'HINDALCO', url: 'https://www.hindalco.com/', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Hindalco_Industries_Logo.svg/1200px-Hindalco_Industries_Logo.svg.png' },
+                { name: 'THE MATH COMPANY', url: 'https://www.themathcompany.com/', logo: 'https://www.themathcompany.com/assets/images/logo.png' },
+                { name: 'SAINT-GOBAIN', url: 'https://www.saint-gobain.co.in/', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Saint-Gobain_Logo.svg/1200px-Saint-Gobain_Logo.svg.png' },
+                { name: 'COROMANDEL', url: 'https://www.coromandel.biz/', logo: 'https://www.coromandel.biz/wp-content/themes/coromandel/assets/images/logo.png' },
+                { name: 'INDKAL', url: 'https://indkal.com/', logo: 'https://indkal.com/wp-content/uploads/2022/10/logo.png' },
+                { name: 'KBR', url: 'https://www.kbr.com/en/what-we-do', logo: 'https://www.kbr.com/-/media/kbr/images/logo/kbr-logo-2021.png' },
+                { name: 'TATA BLUESCOPE STEEL', url: 'https://www.tatabluescopesteel.com/',  logo: 'https://www.tatabluescopesteel.com/images/logo.png' },
+                { name: 'HAWKINS', url: 'https://www.hawkinscookers.com/', logo: 'https://www.hawkinscookers.com/images/hawkins-logo.svg' },
+                { name: 'BHORUKA', url: 'https://bhorukaextrusions.com/', logo: 'https://bhorukaextrusions.com/wp-content/uploads/2020/07/bhoruka_logo.png' },
+                { name: 'A YKK AF COMPANY', url: 'https://www.ykkap.co.jp/english/', logo: 'https://www.ykkap.co.jp/english/company/img/logo.svg'  },
+                { name: 'GEP', url: 'https://www.gep.com/careers/join-us/campus-connect/india', logo: 'https://www.gep.com/uploads/images/GEP_Logo_2020.svg' },
+                { name: 'CNH', url: 'https://www.cnhindustrial.com/en-in/', logo: 'https://www.cnhindustrial.com/image/logo-new.png' },
+                { name: 'AG MARITIME', url: 'https://www.ag-maritime.com/company', logo: 'https://static.wixstatic.com/media/012c15_1ab8a39ae408418e940455f3d00dd1a6~mv2.jpg'  },
+                { name: 'PCBL', url: 'https://www.pcblltd.com/', logo: 'https://www.pcblltd.com/wp-content/uploads/2021/07/logo.png'  },
             ],
 
             supportingPartners: [
-                // The URLs for these logos have been replaced with local paths as per your request.
-                // Please ensure you have these images in a folder named 'logo' at the root.
                 { name: 'IIM Calcutta', logo: 'logo/iimc_logo.png', url: 'https://www.iimcal.ac.in/' },
                 { name: 'IIT Kanpur', logo: 'logo/iit_kanpur_logo.png', url: 'https://www.iitk.ac.in/' },
                 { name: 'IIT Madras', logo: 'logo/iit_madras_logo.png', url: 'https://www.iitm.ac.in/' },
@@ -166,18 +177,53 @@
             ],
             pastRecruiters: [
                 { name: 'TVS', logo: 'https://static.vecteezy.com/system/resources/previews/020/336/393/original/tvs-logo-tvs-icon-transparent-png-free-vector.jpg', url: 'https://www.tvsmotor.com/' },
-                { name: 'BCG', logo: 'https://cdnimg.bnamericas.com/ocYRRDTmJmhfWmzHqEbNDCSgzQwlQStsLxaUdFpMkPxsFTnNPZbHCCzKYCVwpjXW.png', url: 'https://www.bcg.com/india' },
-                { name: 'Deloitte', logo: 'https://tse3.mm.bing.net/th/id/OIP.rOqG0xHRyB1DyDJPCvkySQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://www.deloitte.com/in/en.html' },
-                { name: 'Airbus', logo: 'https://th.bing.com/th/id/R.99b3e52e74903cbe3c903a278ad1c013?rik=mrn3VHu4od05lA&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fairbus-logo-vector-png-airbus-logo-vector-by-windytheplaneh-airbus-logo-vector-by-windytheplaneh-5656.png&ehk=UVMmyJe%2f%2fFXmgA9aUIUfjsEKFHovXXFV6eRWBWfjSTg%3d&risl=&pid=ImgRaw&r=0', url: 'https://www.airbus.com/en/about-us/our-worldwide-presence/airbus-in-asia-pacific/airbus-in-india' },
                 { name: 'Genpact', logo: 'https://tse1.mm.bing.net/th/id/OIP.ePJOL-LkCarEqIdJmfL_WwHaFd?rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://www.genpact.com/' },
-                { name: 'McKinsey', logo: 'https://1000logos.net/wp-content/uploads/2021/09/McKinsey-Logo.png', url: 'https://www.mckinsey.com/in/overview' },
+                // Removed BCG, Airbus, and Deloitte as requested
+                { name: 'Accenture', logo: 'https://steelcase-res.cloudinary.com/image/upload/v1594808802/www.steelcase.com/eu-en/2020/07/15/Accenture-Logo.png', url: 'https://www.accenture.com/in-en' },
+                { name: 'Adani Renewables', logo: 'https://logowik.com/content/uploads/images/adani-renewables-green-energy1681.logowik.com.webp', url: 'https://www.adanirenewables.com/' },
+                { name: 'EY', logo: 'https://tse3.mm.bing.net/th/id/OIP.NgCuwof9cgAThrtusMmrKAHaEw?rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://www.ey.com/en_in' },
+                { name: 'African Industries', logo: 'https://media-exp1.licdn.com/dms/image/C4E0BAQFX7WnPvUO3dA/company-logo_200_200/0/1519885029852?e=2159024400&v=beta&t=FUk9k8AZDJQ9nGGAHKkSOls5BGYWipbrJ6KalogebM4', url: 'https://africanindustries.com/' },
+                { name: 'Aragen', logo: 'https://www.cphi-online.com/Aragen_Logo_RGB_Gradient-comp295152.png', url: 'https://www.aragen.com/' },
+                { name: 'Hitachi', logo: 'https://logos-world.net/wp-content/uploads/2020/11/Hitachi-Emblem.png', url: 'https://www.hitachi.co.in/' },
+                { name: 'Infosys', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/1200px-Infosys_logo.svg.png', url: 'https://www.infosys.com/' },
+                { name: 'ZF', logo: 'https://logos-world.net/wp-content/uploads/2023/03/ZF-Logo.png', url: 'https://www.zf.com/mobile/en/homepage/homepage.html' },
+                { name: 'Dr Reddy', logo: 'https://seekvectorlogo.com/wp-content/uploads/2018/01/dr-reddys-laboratories-vector-logo.png', url: 'https://www.drreddys.com/' },
+                { name: 'Tech Mahindra', logo: 'https://download.logo.wine/logo/Tech_Mahindra/Tech_Mahindra-Logo.wine.png', url: 'https://www.techmahindra.com/' },
+                { name: 'TCS', logo: 'https://logowik.com/content/uploads/images/tcs-tata-consultancy-services2792.logowik.com.webp', url: 'https://www.tcs.com/' },
+                { name: 'Flipkart', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Flipkart-Logo.png/800px-Flipkart-Logo.png', url: 'https://www.flipkart.com/' },
+                { name: 'Grant Thornton', logo: 'https://www.grantthornton.global/globalassets/1.-member-firms/india/2023/gt-logo.png', url: 'https://www.grantthornton.in/' },
+                { name: 'Emami', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Emami_Ltd_Logo.svg/1200px-Emami_Ltd_Logo.svg.png', url: 'https://www.emamiltd.in/' },
+                { name: 'Ather', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Ather_Energy_Logo.svg/1200px-Ather_Energy_Logo.svg.png', url: 'https://www.atherenergy.com/' },
+                { name: 'Xpressbees', logo: 'https://xpressbees.com/frontend/images/xpressbees-logo.svg', url: 'https://xpressbees.com/' },
+                { name: 'Waaree', logo: 'https://www.waaree.com/images/logo.png', url: 'https://www.waaree.com/' },
+                { name: 'Shapoorji Pallonji', logo: 'https://www.shapoorjipallonji.com/assets/images/sp-group-logo.png', url: 'https://www.shapoorjipallonji.com/' },
+                { name: 'ThyssenKrupp', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/ThyssenKrupp_logo.svg/1200px-ThyssenKrupp_logo.svg.png', url: 'https://www.thyssenkrupp.com/en/' },
+                { name: 'Polyplex', logo: 'https://companieslogo.com/img/orig/POLYPLEX.NS_BIG-b98df623.png?t=1604232067', url: 'https://www.polyplex.com/' },
+                { name: 'Nissan Digital', logo: 'https://nissandigital.com/wp-content/themes/ndialthemes/images/NDI_White_Logo.svg', url: 'https://nissandigital.com/' },
+                { name: 'Moglix', logo: 'https://cdn.theorg.com/4484883d-5592-46d2-836a-790ecdd3c2ea_medium.png', url: 'https://www.moglix.com/' },
+                { name: 'IBM', logo: 'https://logos-world.net/wp-content/uploads/2020/10/IBM-Logo-1962.png', url: 'https://www.ibm.com/in-en' },
+                { name: 'Blinkit', logo: 'https://th.bing.com/th/id/OIP.I0ViwSDS-8qCHr1w5blJVAHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://www.blinkit.com/' },
+                { name: 'ABB', logo: 'https://tse4.mm.bing.net/th/id/OIP.HHAF0aA-uDrd02mci8SnMwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://new.abb.com/in' },
+                { name: 'Capgemini', logo: 'https://www.drupal.org/files/Capgemini_Logo_2COL_RGB.png', url: 'https://www.capgemini.com/in-en/' },
+                { name: 'LTImindtree', logo: 'https://companieslogo.com/img/orig/LTIM.NS_BIG-51ac03d3.png?t=1681978847&download=true', url: 'https://www.ltimindtree.com/' },
+                { name: 'Blume', logo: 'https://cdn.blume.vc/blume/imager/images/14230/Blume_Full_Colour_Primary_Reverse-1_6bbcab3b028630e4b58739c0d887078d.jpeg', url: 'https://blume.vc/' },
+                { name: 'MSP Steels', logo: 'https://www.greatplacetowork.in/great/api/assets/uploads/11991/logo/logo.png', url: 'https://www.mspsteels.com/' },
+                { name: 'Cipla', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Cipla_Logo.svg/1200px-Cipla_Logo.svg.png', url: 'https://www.cipla.com/' },
+                { name: 'AIG', logo: 'https://logos-world.net/wp-content/uploads/2023/05/AIG-Logo-1985.png', url: 'https://www.aig.com/' },
+                { name: 'Tsuyo', logo: 'https://evreporter.com/wp-content/uploads/formidable/4/Screenshot-2020-08-06-at-7.10.32-PM-1.png', url: 'https://tsuyo.in/' },
+                { name: 'Matix', logo: 'https://tse2.mm.bing.net/th/id/OIP.TSQw11Rw5-RFVIImRdgadwHaCO?rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://www.matixgroup.com/' },
+                { name: 'Jumbotail', logo: 'https://jumbotail.com/wp-content/uploads/2016/02/JumbotailLogo1.png', url: 'https://www.jumbotail.com/' },
+                { name: 'Tetrahedren', logo: 'https://tse3.mm.bing.net/th/id/OIP.bKOr6q7A0hSFUcG1sE42CwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3', url: 'https://www.tetrahedren.com/' },
+                { name: 'Schaeffler', logo: 'https://companieslogo.com/img/orig/SHA0.DE_BIG-9a486b35.png?t=1720244493&download=true', url: 'https://www.schaeffler.com/en/' }
             ],
             programHighlightsContent: [
-                "**Visionary Leadership:** Develops leaders with a strategic outlook for manufacturing excellence.",
-                "**Global Exposure:** Focus on international best practices and global supply chains.",
-                "**Industry-Academia Synergy:** Strong ties with leading industries and academic institutions.",
-                "**Holistic Curriculum:** Covers operations, supply chain, project management, and business strategy.",
-                "**Experiential Learning:** Emphasizes practical application and real-world problem-solving."
+                "**Crafting Future Visionary Leaders for Global Manufacturing.** Envisioned by the Governments of India and Japan, the programme is a collaboration between IIM Calcutta, IIT Kanpur, IIT Madras, and JICA (Japan International Cooperation Agency). This one-year, full-time residential programme trains experienced engineers for senior management roles. It aims to develop Visionary Leaders who can enhance India's global manufacturing competitiveness through a comprehensive curriculum covering General Management, Digital Transformation, Industry 4.0, Supply Chain Management, Product and Process Management, and more.",
+                "**Salient features:**",
+                "Intensive and rigorous pedagogy integrating management and technology.",
+                "1,173 hours of classroom contact, one of the most comprehensive postgraduate programs in India.",
+                "6-week industry internship or campus project with real-world impact.",
+                "10-day international industry immersion in Japan, focused on world-class manufacturing practices",
+                "Lectures delivered by senior industry leaders and renowned Japanese faculty."
             ]
         };
 
@@ -220,7 +266,6 @@
             const header = document.createElement('header');
             header.className = 'text-center mb-4 bg-white p-4 rounded-xl shadow-lg flex-shrink-0';
             header.innerHTML = `
-                <!-- Updated logo path from 'icon/vlmp_logo.png' to 'logo/vlmp_logo.png' as requested -->
                 <img src="logo/vlmp_logo.png" alt="VLMP Logo" class="mx-auto h-16 sm:h-20 mb-2 object-contain rounded-md" />
                 <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[${PRIMARY_TEXT}] mb-1">
                     PGPEx-VLM Batch Profile
@@ -237,56 +282,55 @@
             `;
             root.appendChild(header);
 
-            // Two-column layout for Program Highlights and Past Records
-            const highlightsContainer = document.createElement('section');
-            highlightsContainer.className = 'grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 flex-grow';
-
-            // Program Highlights Section
-            const programHighlightsSection = document.createElement('div');
-            programHighlightsSection.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col';
-            let highlightsListHtml = batchData.programHighlightsContent.map(item => `
-                <li class="mb-2">
-                    <!-- Removed icon from here -->
-                    <p class="text-gray-700 text-sm sm:text-base">${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
-                </li>
-            `).join('');
-            programHighlightsSection.innerHTML = `
+            // Container for Program Highlights
+            const programHighlightsContainer = document.createElement('section');
+            programHighlightsContainer.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col mb-4';
+            
+            // Structure the program highlights content
+            let programHighlightsContentHtml = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
                     Program Highlights
                 </h3>
-                <ul class="list-none p-0 m-0 text-left max-w-2xl mx-auto">
-                    ${highlightsListHtml}
-                </ul>
+                <div class="text-left max-w-2xl mx-auto">
+                    <p class="text-gray-700 text-sm sm:text-base text-justify mb-2">
+                        ${batchData.programHighlightsContent[0].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
+                    </p>
+                    <h4 class="font-semibold text-gray-700 text-base sm:text-lg mt-4 mb-2">
+                        ${batchData.programHighlightsContent[1].replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}
+                    </h4>
+                    <ul class="list-disc list-inside text-gray-700 text-sm sm:text-base pl-4">
+                        ${batchData.programHighlightsContent.slice(2).map(item => `
+                            <li class="mb-1">${item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</li>
+                        `).join('')}
+                    </ul>
+                </div>
             `;
-            highlightsContainer.appendChild(programHighlightsSection);
+            programHighlightsContainer.innerHTML = programHighlightsContentHtml;
+            root.appendChild(programHighlightsContainer);
 
-            // Past Records Section
-            const pastRecordsSection = document.createElement('div');
-            pastRecordsSection.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col';
-            let pastRecordsButtonsHtml = Object.keys(batchData.pastRecords).reverse().map((year, index) => `
-                <button id="past-records-btn-${year}"
-                    class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
-                           ${index === 0 ? `bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md` : `bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white`}">
-                    ${year}
-                </button>
+            // Professional Background Section (now a full-width carousel)
+            const professionalBackground = document.createElement('section'); 
+            professionalBackground.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col w-full mb-4'; // Added w-full
+            let professionalCompanyLogosHtml = [...batchData.professionalBackgroundCompanies, ...batchData.professionalBackgroundCompanies].map(company => `
+                <a href="${company.url}" target="_blank" rel="noopener noreferrer" 
+                    title="${company.name}"
+                    class="logo-scroll-item flex-shrink-0 flex items-center justify-center p-1 w-24 h-20">
+                    <img src="${company.logo || 'https://placehold.co/80x60/CFD8DC/37474F?text=Logo'}" alt="${company.name} Logo" 
+                            class="max-h-full max-w-full object-contain rounded-md"
+                            onerror="this.onerror=null;this.src='https://placehold.co/80x60/CFD8DC/37474F?text=Logo';">
+                </a>
             `).join('');
-            pastRecordsSection.innerHTML = `
+            professionalBackground.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
-                    Past Records
+                    Professional Background
                 </h3>
-                <div id="past-records-buttons" class="flex justify-center space-x-4 mb-4">
-                    ${pastRecordsButtonsHtml}
+                <div class="flex overflow-x-hidden whitespace-nowrap py-2" style="width: 100%;">
+                    <div class="professional-carousel-container flex space-x-8 items-center">
+                        ${professionalCompanyLogosHtml}
+                    </div>
                 </div>
-                <div class="h-48"> <!-- Added a fixed height container for the chart -->
-                    <canvas id="pastRecordsChartCanvas" class="chart-canvas active h-full w-full"></canvas>
-                </div>
-                <p class="text-center text-gray-600 text-xs mt-auto">
-                    *All figures are in lakhs per annum.
-                </p>
             `;
-            highlightsContainer.appendChild(pastRecordsSection);
-
-            root.appendChild(highlightsContainer);
+            root.appendChild(professionalBackground);
 
 
             // Key Highlights Section
@@ -321,13 +365,13 @@
             `;
             root.appendChild(highlights);
 
-            // Container for Charts and Professional Background (Side-by-Side)
-            const chartsAndProfessionalBgContainer = document.createElement('section');
-            chartsAndProfessionalBgContainer.className = 'grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 flex-grow'; // Use grid for side-by-side
+            // New Container 2: Batch Analytics Charts and Past Records Chart
+            const analyticsAndPastRecordsContainer = document.createElement('section');
+            analyticsAndPastRecordsContainer.className = 'grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4 flex-grow';
 
-            // Charts Section
-            const chartsSection = document.createElement('div'); // Changed to div to be part of the grid
-            chartsSection.className = 'bg-white p-4 rounded-xl shadow-2xl flex flex-col border border-gray-100'; /* Added shadow-2xl and border */
+            // Charts Section (Batch Analytics)
+            const chartsSection = document.createElement('div'); 
+            chartsSection.className = 'bg-white p-4 rounded-xl shadow-2xl flex flex-col border border-gray-100';
             chartsSection.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
                     Batch Analytics
@@ -346,43 +390,49 @@
                         Composition
                     </button>
                 </div>
-                <!-- Added a fixed height container for the chart to ensure it renders properly -->
                 <div id="chart-container" class="h-96 flex-grow flex items-center justify-center">
                     <canvas id="chartCanvas" class="chart-canvas active"></canvas>
                 </div>
-            </div>
             `;
-            chartsAndProfessionalBgContainer.appendChild(chartsSection); // Append to new container
+            analyticsAndPastRecordsContainer.appendChild(chartsSection);
 
-            <!-- Professional Background Section: Now with a grid and small logos -->
-            const professionalBackground = document.createElement('div'); 
-            professionalBackground.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col';
-            let companyLogosHtml = batchData.professionalBackgroundCompanies.map(company => `
-                <a href="${company.url}" target="_blank" rel="noopener noreferrer" 
-                   title="${company.name}"
-                   class="flex items-center justify-center p-1 rounded-lg transition-all duration-200 hover:scale-105 hover:bg-gray-100">
-                    <img src="${company.logo || 'https://placehold.co/40x40/CFD8DC/37474F?text=Logo'}" alt="${company.name} Logo" 
-                         class="h-10 w-auto object-contain rounded-md"
-                         onerror="this.onerror=null;this.src='https://placehold.co/40x40/CFD8DC/37474F?text=Logo';">
-                </a>
+            // Past Records Section (moved here)
+            const pastRecordsSection = document.createElement('div');
+            pastRecordsSection.className = 'bg-white p-4 rounded-xl shadow-2xl border border-gray-100 flex flex-col';
+            let pastRecordsButtonsHtml = Object.keys(batchData.pastRecords).reverse().map((year, index) => `
+                <button id="past-records-btn-${year}"
+                    class="px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200
+                            ${index === 0 ? `bg-[${BUTTON_ACTIVE_BG}] text-white shadow-md` : `bg-[${BUTTON_INACTIVE_BG}] text-[${BUTTON_INACTIVE_TEXT}] hover:bg-[${BUTTON_HOVER_BG}] hover:text-white`}">
+                    ${year}
+                </button>
             `).join('');
-            professionalBackground.innerHTML = `
+            pastRecordsSection.innerHTML = `
                 <h3 class="text-xl font-semibold text-gray-700 mb-3 text-center">
-                    Professional Background
+                    Past Records
                 </h3>
-                <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-0.5 max-h-60 overflow-y-auto custom-scrollbar">
-                    ${companyLogosHtml}
+                <div id="past-records-buttons" class="flex justify-center space-x-4 mb-4">
+                    ${pastRecordsButtonsHtml}
                 </div>
+                <div class="h-48">
+                    <canvas id="pastRecordsChartCanvas" class="chart-canvas active h-full w-full"></canvas>
+                </div>
+                <p class="text-center text-gray-600 text-xs mt-auto">
+                    *All figures are in lakhs per annum.
+                </p>
             `;
-            chartsAndProfessionalBgContainer.appendChild(professionalBackground); // Append to new container
-
-            root.appendChild(chartsAndProfessionalBgContainer); // Append the new container to root
+            analyticsAndPastRecordsContainer.appendChild(pastRecordsSection);
+            root.appendChild(analyticsAndPastRecordsContainer);
 
 
             // Past Recruiters Section
             const pastRecruitersSection = document.createElement('section');
-            pastRecruitersSection.className = 'bg-white p-4 rounded-xl shadow-2xl mb-4 flex-shrink-0 border border-gray-100'; /* Added shadow-2xl and border */
-            let recruiterLogosHtml = [...batchData.pastRecruiters, ...batchData.pastRecruiters].map(recruiter => `
+            pastRecruitersSection.className = 'bg-white p-4 rounded-xl shadow-2xl mb-4 flex-shrink-0 border border-gray-100';
+            // Filter out BCG, Airbus, and Deloitte
+            const filteredRecruiters = batchData.pastRecruiters.filter(recruiter => 
+                recruiter.name !== 'BCG' && recruiter.name !== 'Airbus' && recruiter.name !== 'Deloitte'
+            );
+            // Duplicate the filtered array to create a continuous scroll effect
+            let recruiterLogosHtml = [...filteredRecruiters, ...filteredRecruiters].map(recruiter => `
                 <a href="${recruiter.url}" target="_blank" rel="noopener noreferrer" class="logo-scroll-item flex-shrink-0 flex items-center justify-center p-2">
                     <img src="${recruiter.logo}" alt="${recruiter.name} Logo" class="h-16 object-contain"
                             onerror="this.onerror=null;this.src='https://placehold.co/100x60/F0F8FF/000080?text=${recruiter.name}';">
@@ -403,7 +453,7 @@
 
             // Supporting Partners Section
             const partnersSection = document.createElement('section');
-            partnersSection.className = 'bg-white p-4 rounded-xl shadow-2xl flex-shrink-0 border border-gray-100'; /* Added shadow-2xl and border */
+            partnersSection.className = 'bg-white p-4 rounded-xl shadow-2xl flex-shrink-0 border border-gray-100';
             let partnerLogosHtml = batchData.supportingPartners.map(partner => `
                 <a href="${partner.url}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center">
                     <img src="${partner.logo}" alt="${partner.name} Logo" class="h-12 object-contain rounded-md"
@@ -418,7 +468,7 @@
                     ${partnerLogosHtml}
                 </div>
                 <p class="text-center text-gray-600 mt-3 text-xs">
-                    INDIAN INSTITUTE OF MANAGEMENT CALCUTTA | INDIAN INSTITUTE OF TECHNOLOGY KANPUR | INDIAN INSTITUTE OF TECHNOLOGY MADRAS | DEPARTMENT FOR PROMOTION OF INDUSTRY AND INTERNAL TRADE, MINISTRY OF COMMERCE & INDUSTRY, GOVERNMENT OF INDIA
+                    INDIAN INSTITUTE OF MANAGEMENT CALCUTTA | INDIAN INSTITUTE OF TECHNOLOGY KANPUR | INDIAN INSTITUTE OF TECHNOLOGY MADRAS 
                 </p>
             `;
             root.appendChild(partnersSection);
@@ -443,64 +493,17 @@
                 }
 
                 let data, title, chartTypeJs, datasetLabel;
-                switch (chartType) {
-                    case 'workExperience':
-                        data = batchData.workExperienceDistribution;
-                        title = 'Work Experience Distribution';
-                        chartTypeJs = 'polarArea';
-                        datasetLabel = 'Work Experience';
-                        break;
-                    case 'industry':
-                        data = batchData.industryDistribution;
-                        title = 'Industry-wise Distribution';
-                        chartTypeJs = 'bar'; // Changed to bar chart as requested
-                        datasetLabel = 'Industry Distribution';
-                        break;
-                    case 'functional':
-                        data = batchData.functionalExposure;
-                        title = 'Functional Exposure';
-                        chartTypeJs = 'bar';
-                        datasetLabel = 'Functional Exposure';
-                        break;
-                    case 'composition':
-                        data = batchData.batchComposition;
-                        title = 'Batch Composition';
-                        chartTypeJs = 'doughnut';
-                        datasetLabel = 'Batch Composition';
-                        break;
-                }
-
-                const chartData = {
-                    labels: data.map(d => d.name),
-                    datasets: [{
-                        label: datasetLabel,
-                        data: data.map(d => d.value),
-                        backgroundColor: CHART_COLORS.slice(0, data.length),
-                        hoverOffset: 4
-                    }]
-                };
-
-                const chartOptions = {
+                let chartData; // Declare chartData here
+                let chartOptions = {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            position: 'bottom',
-                            // The legend should only be displayed for charts like polar or doughnut.
-                            // For bar charts, the labels on the axis act as the legend.
-                            display: (chartTypeJs === 'doughnut' || chartTypeJs === 'polarArea') ? true : false,
-                            labels: {
-                                color: '#4B5563',
-                                font: {
-                                    family: 'Inter',
-                                    size: 12
-                                }
-                            }
+                            display: false, // Hide legend by default, adjust per chart type
                         },
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    // Get the label from the data point directly
                                     let label = context.label;
                                     let value = context.formattedValue;
                                     return `${label}: ${value}%`;
@@ -518,47 +521,117 @@
                         }
                     }
                 };
-                
-                // Common scales configuration for bar charts
-                if (chartTypeJs === 'bar') {
-                    chartOptions.indexAxis = (chartType === 'functional') ? 'y' : 'x';
-                    chartOptions.scales = {
-                        x: {
-                            grid: { display: chartOptions.indexAxis === 'x' },
-                            ticks: {
-                                color: '#4B5563',
-                                font: { family: 'Inter' },
+
+                switch (chartType) {
+                    case 'workExperience':
+                        data = batchData.workExperienceDistribution;
+                        title = 'Work Experience Distribution';
+                        chartTypeJs = 'pie'; // Changed to pie chart
+                        datasetLabel = 'Work Experience';
+
+                        chartData = {
+                            labels: data.map(d => d.name),
+                            datasets: [{
+                                label: datasetLabel,
+                                data: data.map(d => d.value),
+                                backgroundColor: CHART_COLORS.slice(0, data.length),
+                                hoverOffset: 4
+                            }]
+                        };
+
+                        chartOptions.plugins.legend.display = true; // Display legend for pie chart
+                        break;
+                    case 'industry':
+                        data = batchData.industryDistribution;
+                        title = 'Industry-wise Distribution';
+                        chartTypeJs = 'bar';
+                        datasetLabel = 'Industry Distribution';
+                        chartData = {
+                            labels: data.map(d => d.name),
+                            datasets: [{
+                                label: datasetLabel,
+                                data: data.map(d => d.value),
+                                backgroundColor: CHART_COLORS.slice(0, data.length),
+                                hoverOffset: 4
+                            }]
+                        };
+                        chartOptions.indexAxis = 'x';
+                        chartOptions.scales = {
+                            x: {
+                                grid: { display: true, color: '#E5E7EB' },
+                                ticks: {
+                                    color: '#4B5563',
+                                    font: { family: 'Inter' },
+                                },
+                                callback: function(value) { return value + '%'; } // Add percentage to x-axis ticks
                             },
-                        },
-                        y: {
-                            grid: { display: chartOptions.indexAxis === 'y' },
-                            ticks: {
-                                color: '#4B5563',
-                                font: { family: 'Inter' }
+                            y: {
+                                grid: { display: true, color: '#E5E7EB' },
+                                ticks: {
+                                    color: '#4B5563',
+                                    font: { family: 'Inter' },
+                                    callback: function(value) { return value + '%'; } // Add percentage to y-axis ticks
+                                }
                             }
-                        }
-                    };
-                } else if (chartTypeJs === 'radar') {
-                    chartOptions.scales = {
-                        r: {
-                            angleLines: { color: '#E5E7EB' },
-                            grid: { color: '#E5E7EB' },
-                            pointLabels: { color: '#4B5563', font: { family: 'Inter' } },
-                            ticks: { display: false }
-                        }
-                    };
-                    chartData.datasets[0].borderColor = CHART_COLORS[0];
-                    chartData.datasets[0].borderWidth = 2;
-                    chartData.datasets[0].fill = true;
-                    chartData.datasets[0].backgroundColor = CHART_COLORS[0] + '40';
-                } else if (chartTypeJs === 'polarArea') {
-                    chartOptions.scales = {
-                        r: {
-                            angleLines: { display: false },
-                            grid: { color: '#E5E7EB' },
-                            ticks: { display: false }
-                        }
-                    };
+                        };
+                        chartOptions.plugins.legend.display = false; // Bar chart usually doesn't need legend
+                        break;
+                    case 'functional':
+                        data = batchData.functionalExposure;
+                        title = 'Functional Exposure';
+                        chartTypeJs = 'bar';
+                        datasetLabel = 'Functional Exposure';
+                        chartData = {
+                            labels: data.map(d => d.name),
+                            datasets: [{
+                                label: datasetLabel,
+                                data: data.map(d => d.value),
+                                backgroundColor: CHART_COLORS.slice(0, data.length),
+                                hoverOffset: 4
+                            }]
+                        };
+                        chartOptions.indexAxis = 'y'; // Horizontal bar chart
+                        chartOptions.scales = {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Percentage of Batch (%)',
+                                    color: '#4B5563',
+                                    font: { family: 'Inter' }
+                                },
+                                grid: { display: true, color: '#E5E7EB' },
+                                ticks: {
+                                    color: '#4B5563',
+                                    font: { family: 'Inter' },
+                                    callback: function(value) { return value + '%'; }
+                                }
+                            },
+                            y: {
+                                grid: { display: false },
+                                ticks: {
+                                    color: '#4B5563',
+                                    font: { family: 'Inter' }
+                                }
+                            }
+                        };
+                        chartOptions.plugins.legend.display = false; // Bar chart usually doesn't need legend
+                        break;
+                    case 'composition':
+                        data = batchData.batchComposition;
+                        title = 'Batch Composition';
+                        chartTypeJs = 'doughnut';
+                        datasetLabel = 'Batch Composition';
+                        chartData = {
+                            labels: data.map(d => d.name),
+                            datasets: [{
+                                label: datasetLabel,
+                                data: data.map(d => d.value),
+                                backgroundColor: CHART_COLORS.slice(0, data.length),
+                                hoverOffset: 4
+                            }]
+                        };
+                        chartOptions.plugins.legend.display = true; // Ensure legend is displayed for doughnut
+                        break;
                 }
 
                 currentChartInstance = new Chart(chartCanvas, {
@@ -570,7 +643,6 @@
             
             function renderPastRecords(year) {
                 const data = batchData.pastRecords[year];
-                const displayDiv = document.getElementById('past-records-display');
                 if (data) {
                     const chartCanvas = document.getElementById('pastRecordsChartCanvas');
                     if (window.pastRecordsChart) {
@@ -578,10 +650,10 @@
                     }
 
                     const chartData = {
-                        labels: ['Mean', 'Median', 'Mode'],
+                        labels: ['Mean', 'Median', 'Highest'],
                         datasets: [{
                             label: `Salary for ${year}`,
-                            data: [data.mean, data.median, data.mode],
+                            data: [data.mean, data.median, data.highest],
                             backgroundColor: MEAN_MEDIAN_MODE_COLORS,
                         }]
                     };
