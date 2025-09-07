@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Background</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,18 +35,22 @@
 </head>
 <body class="min-h-screen flex flex-col items-center py-8 px-4">
 
+    <!-- Header Section -->
     <header class="w-full max-w-6xl text-center mb-12 animate-fade-in">
         <h1 class="text-5xl md:text-6xl font-extrabold text-gray-800 mb-6 leading-tight">Professional Background</h1>
         <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            A list of companies where our cohort have built their professional careers, including a variety of roles across different sectors.
+            A list of companies where our alumni have built their professional careers, including a variety of roles across different sectors.
         </p>
     </header>
 
+    <!-- Main Content - Company Grid -->
     <main class="w-full max-w-6xl">
         <div id="logo-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-            </div>
+            <!-- Logos will be dynamically added here by JavaScript -->
+        </div>
     </main>
 
+    <!-- Footer Section -->
     <footer class="w-full max-w-6xl text-center mt-12 py-4 border-t border-gray-200 text-gray-500 text-sm">
         &copy; 2025 Professional Background. All rights reserved.
     </footer>
@@ -91,23 +96,18 @@
                 const logoCard = document.createElement('a');
                 logoCard.href = company.url;
                 logoCard.target = "_blank";
-                logoCard.className = "company-card block p-6 bg-white rounded-xl shadow-md flex flex-col items-center justify-center text-center animate-fade-in opacity-0";
+                logoCard.className = "company-card block p-4 bg-white rounded-xl shadow-md flex flex-col items-center justify-center text-center animate-fade-in opacity-0";
                 logoCard.style.animationDelay = `${index * 0.1}s`;
 
                 const logoImage = document.createElement('img');
                 logoImage.src = company.logo;
                 logoImage.alt = company.name + ' logo';
-                logoImage.className = "w-24 h-12 object-contain mb-3 rounded-md";
+                logoImage.className = "w-24 h-24 object-contain rounded-md";
                 logoImage.onerror = function() {
-                    this.src = `https://placehold.co/100x50/F0F2F5/333333?text=${encodeURIComponent(company.name.split(' ')[0])}`;
+                    this.src = `https://placehold.co/100x50/F0F2F5/333333?text=Logo`;
                 };
 
-                const logoName = document.createElement('span');
-                logoName.textContent = company.name;
-                logoName.className = "text-sm font-semibold text-gray-700";
-
                 logoCard.appendChild(logoImage);
-                logoCard.appendChild(logoName);
                 logoGrid.appendChild(logoCard);
             });
         });
